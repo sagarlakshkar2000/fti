@@ -1,0 +1,210 @@
+{
+    "cars_section": {
+        "title": "Choose your Taxi to Hire",
+        "description": "Choose from a wide selection of vehicles, perfect for your travel preferences and budget needs.",
+        "cars": [
+            {
+                "name": "Swift Desire",
+                "image": "https://quickcabservicesjaipur.com/wp-content/uploads/2025/05/Swift-desire.png",
+                "link": "/swift-dzire-car-hire-in-jaipur",
+                "rating": 4.0,
+                "reviews": 1389,
+                "specifications": {
+                    "seating_capacity": "4 Person",
+                    "air_conditioning": "Yes"
+                },
+                "whatsapp_link": "https://wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name:%20Swift%20Desire.%20Please%20let%20me%20know%20the%20availability."
+            },
+            {
+                "name": "Hyundai Aura",
+                "image": "https://quickcabservicesjaipur.com/wp-content/uploads/2025/01/Hyundai-Aura.jpg",
+                "link": "/hyundai-aura-car-hire-in-jaipur",
+                "rating": 4.5,
+                "reviews": 125,
+                "specifications": {
+                    "seating_capacity": "4 Person",
+                    "air_conditioning": "Yes"
+                },
+                "whatsapp_link": "https://wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name:%20Hyundai%20Aura.%20Please%20let%20me%20know%20the%20availability."
+            },
+            {
+                "name": "Toyota Etios",
+                "image": "https://quickcabservicesjaipur.com/wp-content/uploads/2025/01/Toyota-Etios.png",
+                "link": "/toyota-etios-car-rental-in-jaipur",
+                "rating": 4.0,
+                "reviews": 173,
+                "specifications": {
+                    "seating_capacity": "4 Person",
+                    "air_conditioning": "Yes"
+                },
+                "whatsapp_link": "https://wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name:%Toyota%Etios.%20Please%20let%20me%20know%20the%20availability."
+            },
+            {
+                "name": "Maruti Ciaz",
+                "image": "https://quickcabservicesjaipur.com/wp-content/uploads/2025/01/Maruti-Ciaz.jpg",
+                "link": "/maruti-ciaz-car-rental-in-jaipur",
+                "rating": 4.0,
+                "reviews": 78,
+                "specifications": {
+                    "seating_capacity": "4 Person",
+                    "air_conditioning": "Yes"
+                },
+                "whatsapp_link": "https://wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name:%20Maruti%20Ciaz.%20Please%20let%20me%20know%20the%20availability."
+            },
+            {
+                "name": "Maruti Ertiga",
+                "image": "https://quickcabservicesjaipur.com/wp-content/uploads/2025/01/Maruti-ertiga-2.png",
+                "link": "/ertiga-car-rental-in-jaipur",
+                "rating": 4.0,
+                "reviews": 724,
+                "specifications": {
+                    "seating_capacity": "6 Person",
+                    "air_conditioning": "Yes"
+                },
+                "whatsapp_link": "https://wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name:%20Maruti%20Ertiga.%20Please%20let%20me%20know%20the%20availability."
+            },
+            {
+                "name": "Kia Carens",
+                "image": "https://quickcabservicesjaipur.com/wp-content/uploads/2025/01/Kia-Carens.jpg",
+                "link": "/kia-carens-car-rental-in-jaipur",
+                "rating": 4.5,
+                "reviews": 246,
+                "specifications": {
+                    "seating_capacity": "6 Person",
+                    "air_conditioning": "Yes"
+                },
+                "whatsapp_link": "https://wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name:%20Kia%20Carens.%20Please%20let%20me%20know%20the%20availability."
+            },
+            {
+                "name": "Innova",
+                "image": "https://quickcabservicesjaipur.com/wp-content/uploads/2025/01/Innova-1.png",
+                "link": "/innova-car-rental-in-jaipur",
+                "rating": 4.0,
+                "reviews": 1078,
+                "specifications": {
+                    "seating_capacity": "6 Person",
+                    "air_conditioning": "Yes"
+                },
+                "whatsapp_link": "https://wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name:%20Toyota%20Innova.%20Please%20let%20me%20know%20the%20availability."
+            },
+            {
+                "name": "Innova Crysta",
+                "image": "https://quickcabservicesjaipur.com/wp-content/uploads/2025/01/Innova-Crysta.png",
+                "link": "/innova-crysta-car-rental-in-jaipur",
+                "rating": 4.0,
+                "reviews": 2724,
+                "specifications": {
+                    "seating_capacity": "6 Person",
+                    "air_conditioning": "Yes"
+                },
+                "whatsapp_link": "https://wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name:%Innova%Crysta.%20Please%20let%20me%20know%20the%20availability."
+            },
+            {
+                "name": "Innova Hycross",
+                "image": "https://quickcabservicesjaipur.com/wp-content/uploads/2025/01/Innova-Hycross.jpg",
+                "link": "/innova-hycross-car-rental-in-jaipur",
+                "rating": 4.0,
+                "reviews": 817,
+                "specifications": {
+                    "seating_capacity": "6 Person",
+                    "air_conditioning": "Yes"
+                },
+                "whatsapp_link": "https://wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name:%Innova%Hycross.%20Please%20let%20me%20know%20the%20availability."
+            }
+        ],
+        "taxi_services": [
+            {
+                "title": "Airport Transfers",
+                "description": "On-time pickups and drops with real-time flight tracking and meet & greet service."
+            },
+            {
+                "title": "City Rides",
+                "description": "Affordable point-to-point rides with professional drivers who know the city well."
+            },
+            {
+                "title": "Outstation Trips",
+                "description": "Comfortable intercity travel with flexible packages and multiple vehicle options."
+            },
+            {
+                "title": "Corporate Rides",
+                "description": "Dedicated business travel solutions with monthly billing and priority support."
+            },
+            {
+                "title": "Wedding Car Rentals",
+                "description": "Luxury vehicles with professional chauffeurs for your special occasions."
+            },
+            {
+                "title": "Hourly Rentals",
+                "description": "Flexible hourly packages for shopping, meetings or multiple stops in the city."
+            }
+        ],
+        "tourPackages": [
+            {
+                "id": 1,
+                "name": "Golden Triangle Tour",
+                "duration": "5 Days / 4 Nights",
+                "route": "Delhi - Jaipur - Agra - Delhi",
+                "accommodation": "4 Star Accommodation",
+                "transport": "AC Vehicle with Driver",
+                "meals": "Breakfast Included",
+                "catch_line": "Experience India's most iconic circuit in luxury and comfort",
+                "is_popular": true
+            },
+            {
+                "id": 2,
+                "name": "Rajasthan Cultural Tour",
+                "duration": "7 Days / 6 Nights",
+                "route": "Jaipur - Jodhpur - Udaipur - Pushkar",
+                "accommodation": "Heritage Stay Experience",
+                "transport": "Luxury AC Vehicle",
+                "inclusions": "Cultural Shows Included",
+                "catch_line": "Immerse yourself in the rich cultural tapestry of Rajasthan",
+                "is_popular": false
+            },
+            {
+                "id": 3,
+                "name": "Desert Adventure Tour",
+                "duration": "4 Days / 3 Nights",
+                "route": "Jaisalmer Desert Camp",
+                "accommodation": "Desert Camp Stay",
+                "activities": "Camel Safari Included",
+                "experiences": "Bonfire & Cultural Night",
+                "catch_line": "Embark on an unforgettable desert adventure under the stars",
+                "is_popular": true
+            },
+            {
+                "id": 4,
+                "name": "Royal Palaces Tour",
+                "duration": "6 Days / 5 Nights",
+                "route": "Jaipur - Udaipur - Jodhpur",
+                "accommodation": "Palace Hotels",
+                "transport": "Premium AC Vehicle",
+                "experiences": "Private Guided Tours",
+                "catch_line": "Live like royalty exploring majestic palaces and forts",
+                "is_popular": false
+            },
+            {
+                "id": 5,
+                "name": "Wildlife & Nature Tour",
+                "duration": "5 Days / 4 Nights",
+                "route": "Ranthambore - Bharatpur - Jaipur",
+                "accommodation": "Jungle Lodge & Heritage Hotel",
+                "activities": "Safari Experiences",
+                "transport": "AC Vehicle with Expert Driver",
+                "catch_line": "Discover Rajasthan's wild side with tiger spotting and bird watching",
+                "is_popular": true
+            },
+            {
+                "id": 6,
+                "name": "Spiritual Journey Tour",
+                "duration": "5 Days / 4 Nights",
+                "route": "Pushkar - Ajmer - Jaipur",
+                "accommodation": "Comfortable & Spiritual Stays",
+                "transport": "AC Vehicle",
+                "experiences": "Spiritual Guidance Included",
+                "catch_line": "Find inner peace on a spiritual journey through sacred sites",
+                "is_popular": false
+            }
+        ]
+    }
+}

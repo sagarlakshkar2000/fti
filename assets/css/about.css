@@ -1,0 +1,97 @@
+.why-choose-section {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    /* Blue gradient */
+    padding: 60px 0;
+}
+
+/* Icon circle */
+.why-box .icon {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-right: 15px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.why-box h6 {
+    font-size: 1rem;
+}
+
+.why-box p {
+    font-size: 0.92rem;
+}
+
+
+.testimonials-section {
+    background: linear-gradient(135deg, #ffb347, #ffcc33);
+    /* Warm yellow gradient */
+    padding: 60px 0;
+}
+
+/* Testimonial box */
+.testimonial-box {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.testimonial-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-box p {
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Title contrast */
+.testimonials-section h2 {
+    font-size: 2rem;
+}
+
+/* ============================================================ */
+.memory-card {
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    height: 250px;
+}
+
+.memory-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.memory-card:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.memory-card:hover .overlay {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .memory-card {
+        height: 200px;
+    }
+}

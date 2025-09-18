@@ -1,0 +1,1040 @@
+/* ########################################################################### */
+/* ########################################################################### */
+/* #############################  GLOBAL STYLES  ######################### */
+/* ########################################################################### */
+/* ########################################################################### */
+
+/* 🌐 Bootstrap 5 Global Overrides */
+
+/* Variables */
+:root {
+    --bs-primary: #3a86ff;
+    --bs-secondary: #ff006e;
+    --bs-dark: #1a1a2e;
+    --bs-light: #f8f9fa;
+    --bs-accent: #8338ec;
+
+
+    --bg-dark-primary: hsl(12, 80%, 23%);
+    --bg-dark: hsl(210, 29%, 24%);
+    --bg-light: hsl(39.05deg 96.92% 87.25%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --yellow: hsl(45, 100%, 51%);
+
+
+    --font-main: 'Poppins', sans-serif;
+    --radius: 8px;
+    --transition: all 0.3s ease-in-out;
+
+    --gradient: linear-gradient(135deg, var(--bg-dark-primary), hsl(24, 100%, 41%));
+    --gradient1: linear-gradient(135deg, var(--bg-dark-primary), var(var(--bg-light)));
+    --gradient2: linear-gradient(135deg, var(var(--bg-light)), var(--bg-dark-primary));
+    --gradient3: linear-gradient(135deg, var(--bs-light), var(--bg-dark-primary));
+    --gradient4: linear-gradient(135deg, var(--bg-dark-primary), var(--bg-dark));
+}
+
+/* Global */
+body {
+    background-color: var(--bs-light);
+    color: var(--bs-dark);
+    font-family: var(--font-main);
+}
+
+/* ########################################################################### */
+/* ########################################################################### */
+/* ############################# END GLOBAL STYLES  ######################### */
+/* ########################################################################### */
+/* ########################################################################### */
+
+/* ================= Start Navbar Section ===================== */
+.header-container {
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 999;
+}
+
+/* Top bar */
+.top-bar {
+    background: var(--bg-dark);
+    color: var(--white);
+    font-size: 14px;
+    padding: 8px 0;
+}
+
+.top-bar i {
+    color: var(--secondary);
+}
+
+/* Trust badge */
+.trust-badge {
+    background: var(--gradient);
+    color: var(--white);
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Navbar */
+.navbar {
+    background: #fff;
+    padding: 15px 0;
+    transition: all 0.3s;
+}
+
+/* Logo container */
+.navbar-brand-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-brand {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #ffe8be;
+    padding: 10px;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.brand-logo {
+    width: 100%;
+    height: auto;
+}
+
+/* Navbar links */
+.nav-item {
+    color: var(--primary);
+    font-weight: 500;
+    transition: color 0.3s;
+    width: 80px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.nav-link:hover {
+    color: var(--white) !important;
+    background: var(--gradient);
+}
+
+.nav-link.active {
+    font-weight: 600;
+    color: var(--white) !important;
+    background: var(--gradient);
+}
+
+/* Responsive tweaks */
+@media (max-width: 991px) {
+    .navbar-brand {
+        top: -55px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .nav-link {
+        margin: 8px 0;
+        display: block;
+        text-align: center;
+    }
+
+    .trust-badge {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .top-bar {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .navbar-brand {
+        top: -50px;
+        width: 90px;
+        height: 90px;
+    }
+
+    .brand-logo {
+        width: 80px;
+    }
+}
+
+
+/* ================= End Navbar Section ===================== */
+
+
+/* ================= Hero Section ===================== */
+/* Hero Section */
+.hero-section {
+    background: var(--gradient);
+    color: #fff;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    max-width: 90%;
+}
+
+.highlight {
+    color: #EAB543;
+    /* golden highlight */
+}
+
+/* Reviews */
+.reviews {
+    font-size: 1rem;
+    margin: 15px 0;
+    font-weight: 500;
+}
+
+.reviews i {
+    color: #EAB543;
+    margin-right: 3px;
+}
+
+/* Features */
+.features {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 25px;
+}
+
+.features div {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.features div:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.features i {
+    color: #EAB543;
+    font-size: 1.2rem;
+}
+
+/* CTA Button */
+.btn-cta {
+    background-color: #EAB543;
+    border: none;
+    color: #000;
+    padding: 14px 32px;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 1.05rem;
+}
+
+.btn-cta:hover {
+    background-color: #ffcc00;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* Car Images */
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= Responsive ================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .hero-section {
+        padding: 80px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .features div {
+        font-size: 0.95rem;
+        padding: 6px 12px;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+        padding: 60px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.9rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .features {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .btn-cta {
+        width: 100%;
+    }
+
+    .carousel-item img {
+        max-height: 220px;
+        margin: 20px auto 0;
+    }
+}
+
+/* ================= End Hero Section ================= */
+/* ================= Start Taxi Services Section ================= */
+.service-box {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 4px solid transparent;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.service-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.service-box:hover::before {
+    border-color: #ffc107;
+    /* bootstrap warning yellow */
+}
+
+/* Circle icon style */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #ffc107;
+    transition: 0.3s;
+}
+
+.service-box:hover .icon-box {
+    background: #ffc107;
+    color: #fff;
+}
+
+/* ================= End Taxi Services Section ================= */
+
+/* ================= Start Our Fleet Section ================= */
+.our-fleet-section {
+    background: var(--gradient);
+    color: var(--white);
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.our-fleet-section .fleet-card {
+    transition: all 0.3s ease;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+
+.fleet-card img {
+    height: 180px;
+    object-fit: contain;
+    margin-top: 15px;
+}
+
+/* ================= End Our Fleet Section ================= */
+
+/* ================= Start Airport /Railway Pickup-Drop Taxi Service ================= */
+.airport-railway-service-section {
+    background: var(--gradient-light);
+    padding: 5rem 0;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    color: var(--bs-dark);
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--bs-primary);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* ==============================
+   Service Card
+============================== */
+.service-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-container {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.service-card:hover .card-img-container img {
+    transform: scale(1.08);
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(26, 26, 46, 0.2), rgba(26, 26, 46, 0.8));
+}
+
+.badge-popular {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--bs-secondary);
+    color: var(--white);
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(255, 0, 110, 0.4);
+}
+
+/* ==============================
+   Card Content
+============================== */
+.card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 1.6rem;
+    box-shadow: 0 5px 15px rgba(58, 134, 255, 0.2);
+}
+
+.airport-icon {
+    background: var(--gradient);
+    color: var(--white);
+}
+
+.railway-icon {
+    background: linear-gradient(45deg, var(--bs-secondary), #ff6b6b);
+    color: var(--white);
+}
+
+.service-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--bs-dark);
+    font-size: 1.25rem;
+}
+
+.service-features {
+    margin: 1.2rem 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.feature-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(58, 134, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: var(--bs-primary);
+    font-size: 0.85rem;
+}
+
+/* ==============================
+   Buttons
+============================== */
+.btn-booking {
+    background: var(--bs-primary);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(58, 134, 255, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.btn-booking:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(58, 134, 255, 0.45);
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 992px) {
+    .card-img-container {
+        height: 200px;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-content {
+        padding: 1.2rem;
+    }
+
+    .service-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.3rem;
+    }
+
+    .service-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* ENDNEW DESIGN */
+
+/* ================= End Airport /Railway Pickup-Drop Taxi Service =================== */
+
+/* achievements design  */
+.trust-logo {
+    max-height: 60px;
+    filter: brightness(1);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.trust-logo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.btn-light:hover {
+    background-color: #ffffffcc;
+    color: #000;
+    transform: translateY(-2px);
+    transition: 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transform: translateY(-2px);
+    transition: 0.3s ease;
+}
+
+/* =============== Start Rajasthan Tours Section ==================== */
+/* ==============================
+   Rajasthan Tours Section
+============================== */
+.rajasthan-tours-section {
+    padding: 5rem 0;
+    background: linear-gradient(to bottom, var(--white) 0%, var(--bs-light) 100%);
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+    color: var(--bs-dark);
+    font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--bs-primary);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* ==============================
+   Package Card
+============================== */
+.package-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.package-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.package-header {
+    padding: 1.5rem;
+    background: linear-gradient(45deg, var(--bs-primary), var(--bs-accent));
+    color: var(--white);
+    position: relative;
+}
+
+.package-name {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+}
+
+.package-days {
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* ==============================
+   Package Content
+============================== */
+.package-content {
+    padding: 1.6rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.package-features {
+    margin-bottom: 1.5rem;
+}
+
+.package-feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.9rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.feature-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(58, 134, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: var(--bs-primary);
+    font-size: 0.85rem;
+}
+
+/* ==============================
+   Catch Line
+============================== */
+.catch-line {
+    background: linear-gradient(45deg, var(--bs-light), #e9ecef);
+    padding: 1rem;
+    border-radius: var(--radius);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--bs-primary);
+}
+
+.catch-line p {
+    margin: 0;
+    font-style: italic;
+    color: var(--bs-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* ==============================
+   Buttons
+============================== */
+.btn-enquire {
+    background: var(--bs-primary);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(58, 134, 255, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.btn-enquire:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(58, 134, 255, 0.35);
+}
+
+/* ==============================
+   Popular Badge
+============================== */
+.popular-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--bs-secondary);
+    color: var(--white);
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(255, 0, 110, 0.35);
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 992px) {
+    .package-header {
+        padding: 1.2rem;
+    }
+
+    .package-content {
+        padding: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .package-card {
+        margin-bottom: 1.8rem;
+    }
+
+    .package-content {
+        padding: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .package-name {
+        font-size: 1.1rem;
+    }
+
+    .btn-enquire {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* =============== End Rajasthan Tours Section ==================== */
+
+/* =============== Start Footer Section ==================== */
+.footer {
+    background-color: #1c1c1c;
+    color: #cfcfcf;
+    padding-top: 60px;
+    position: relative;
+}
+
+.footer h5 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer a {
+    color: #cfcfcf;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ffc107;
+}
+
+.footer .social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+    text-align: center;
+    color: #1c1c1c;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.footer .social-icons a:hover {
+    background-color: #ffc107;
+    color: #1c1c1c;
+}
+
+.footer .seo-text {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #aaa;
+    margin-top: 20px;
+}
+
+.footer-bottom {
+    background-color: #ffc107;
+    color: #1c1c1c;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #1c1c1c;
+    font-weight: 600;
+}
+
+
+/* WhatsApp and Call Floating Buttons */
+
+.contact-container>a {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.contact-container>a:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.whatsapp-btn {
+    right: 20px;
+    bottom: 120px;
+    background: #25d366;
+}
+
+.call-btn {
+    right: 20px;
+    bottom: 50px;
+    background: #0d6efd;
+}
+
+
+
+
+/* =============== End Footer Section ==================== */
+
+/* =============== Start Breadcrumb  ==================== */
+.custom-breadcrumb-container {
+    min-height: 190px;
+    background: var(--gradient);
+    border-radius: 0 !important;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+}
+
+.custom-breadcrumb-container h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+}
+
+.custom-breadcrumb {
+    background: transparent;
+    padding: 0.25rem 0;
+    --bs-breadcrumb-divider: "";
+}
+
+.custom-breadcrumb>li>a {
+    font-size: 0.75rem;
+}
+
+.custom-breadcrumb>li {
+    font-size: 0.75rem;
+}
+
+.custom-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+    content: ">>";
+    /* custom separator (easy to change) */
+    color: var(--white);
+    padding: 0 0.55rem;
+    font-size: 0.75rem;
+}
+
+.custom-breadcrumb .breadcrumb-item a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color .15s ease;
+}
+
+.custom-breadcrumb .breadcrumb-item a:hover,
+.custom-breadcrumb .breadcrumb-item a:focus {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.custom-breadcrumb .breadcrumb-item.active {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+/* Make smaller on mobile and keep spacing neat */
+@media (max-width: 576px) {
+    .custom-breadcrumb-container h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        text-transform: capitalize;
+    }
+
+    .custom-breadcrumb>li>a {
+        font-size: 0.75rem;
+    }
+
+    .custom-breadcrumb>li {
+        font-size: 0.75rem;
+    }
+
+    .custom-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+        content: ">>";
+        /* custom separator (easy to change) */
+        color: var(--white);
+        padding: 0 0.55rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* =============== End Breadcrumb ==================== */
