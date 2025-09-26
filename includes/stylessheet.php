@@ -3,3 +3,4 @@
 
 <link href="assets/css/index.css" rel="stylesheet">
 <link href="assets/css/about.css" rel="stylesheet">
+<link href="assets/css/contact.css" rel="stylesheet">

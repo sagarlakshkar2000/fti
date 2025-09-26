@@ -16,7 +16,7 @@ $tourPackages = $jsonDecodedData['cars_section']['tourPackages'];
 
 $memories = [
     [
-        "title" => "Rajasthan Tour",
+        "title" => "Jaipur Tour",
         "image" => "https://famoustoursindia.com/assets/images/home/jaipur.jpg"
     ],
     [
@@ -27,10 +27,6 @@ $memories = [
         "title" => "Jaisalmer Tour",
         "image" => "https://famoustoursindia.com/assets/images/home/jaisalmer.jpg"
     ],
-    [
-        "title" => "Goa Tour",
-        "image" => "https://source.unsplash.com/400x300/?india,goa"
-    ]
 ];
 
 ?>
@@ -49,7 +45,7 @@ $memories = [
 </nav>
 
 <!-- About Us Section -->
-<section class="section-padding">
+<section class="section-padding py-5">
     <div class="container">
         <h2 class="text-center mb-5">About Quick Cab Services Jaipur</h2>
         <div class="row">
@@ -138,31 +134,6 @@ $memories = [
     </div>
 </section>
 
-<!-- Start Our Taxi Service Section -->
-<section class="taxi-services container-fluid py-5 bg-white">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">Our Taxi Services</h2>
-            <p class="text-muted">Reliable and convenient rides for all your needs</p>
-        </div>
-
-        <div class="row g-4">
-            <?php foreach ($taxiServices as $service): ?>
-                <div class="col-6 col-lg-4">
-                    <div class="service-box h-100 p-4 text-center">
-                        <div class="icon-box mx-auto mb-3">
-                            <i class="fas fa-taxi"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2"><?= htmlspecialchars($service['title']) ?></h5>
-                        <p class="text-muted small mb-0"><?= htmlspecialchars($service['description']) ?></p>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-<!-- End Our Taxi Service Section -->
-
 <!-- Customer Testimonials -->
 <section id="testimonials" class="section-padding testimonials-section">
     <div class="container">
@@ -201,6 +172,31 @@ $memories = [
     </div>
 </section>
 
+<!-- Start Our Taxi Service Section -->
+<section class="taxi-services container-fluid py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Our Taxi Services</h2>
+            <p class="text-muted">Reliable and convenient rides for all your needs</p>
+        </div>
+
+        <div class="row g-4">
+            <?php foreach ($taxiServices as $service): ?>
+                <div class="col-6 col-lg-4">
+                    <div class="service-box h-100 p-4 text-center">
+                        <div class="icon-box mx-auto mb-3">
+                            <i class="fas fa-taxi"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2"><?= htmlspecialchars($service['title']) ?></h5>
+                        <p class="text-muted small mb-0"><?= htmlspecialchars($service['description']) ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<!-- End Our Taxi Service Section -->
+
 <!-- Gallery -->
 <section class="section-padding py-5" style="background-color:#f9f9f9;">
     <div class="container">
@@ -220,43 +216,9 @@ $memories = [
     </div>
 </section>
 
-<section class="section-padding" style="background-color:#f9f9f9;">
-    <div class="container">
-        <h2 class="text-center mb-5">Travel Memories</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="memory-card position-relative overflow-hidden rounded shadow-sm">
-                    <img src="https://famoustoursindia.com/assets/images/home/jaipur.jpg" class="img-fluid w-100"
-                        alt="Rajasthan Tour">
-                    <div class="overlay d-flex justify-content-center align-items-center">
-                        <h5 class="text-white">Rajasthan Tour</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="memory-card position-relative overflow-hidden rounded shadow-sm">
-                    <img src="https://famoustoursindia.com/assets/images/home/udaipur.jpg" class="img-fluid w-100"
-                        alt="Taj Mahal Tour">
-                    <div class="overlay d-flex justify-content-center align-items-center">
-                        <h5 class="text-white">Taj Mahal Tour</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="memory-card position-relative overflow-hidden rounded shadow-sm">
-                    <img src="https://famoustoursindia.com/assets/images/home/jaisalmer.jpg" class="img-fluid w-100"
-                        alt="Goa Tour">
-                    <div class="overlay d-flex justify-content-center align-items-center">
-                        <h5 class="text-white">Goa Tour</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Call to Action -->
-<section id="contact" class="section-padding text-center" style="background: var(--gradient); color: var(--white);">
+<section id="contact" class="section-padding text-center py-5"
+    style="background: var(--gradient); color: var(--white);">
     <div class="container">
         <h2 class="mb-4">Ready to Explore India?</h2>
         <p class="lead mb-4">Book your trip or contact us for customized tour packages!</p>
