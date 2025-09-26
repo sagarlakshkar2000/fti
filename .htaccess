@@ -1,0 +1,12 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Remove .php from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
+
+# Optional: force lowercase URLs (prevent duplicate URLs)
+# RewriteMap lc int:tolower
+# RewriteCond %{REQUEST_URI} [A-Z]
+# RewriteRule (.*) ${lc:$1} [R=301,L]
