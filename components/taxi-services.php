@@ -1,8 +1,40 @@
 <?php
-// Read JSON file
-$jsonData = file_get_contents('./utils/data/cars.json');
-$jsonDecodedData = json_decode($jsonData, true);
-$taxiServices = $jsonDecodedData['cars_section']['taxi_services'];
+$taxiServices = [
+  [
+    "title" => "Airport Transfers",
+    "description" => "On-time pickups and drops with real-time flight tracking and meet & greet service."
+  ],
+  [
+    "title" => "City Rides",
+    "description" => "Affordable point-to-point rides with professional drivers who know the city well."
+  ],
+  [
+    "title" => "Outstation Trips",
+    "description" => "Comfortable intercity travel with flexible packages and multiple vehicle options."
+  ],
+  [
+    "title" => "Corporate Rides",
+    "description" => "Dedicated business travel solutions with monthly billing and priority support."
+  ],
+  [
+    "title" => "Wedding Car Rentals",
+    "description" => "Luxury vehicles with professional chauffeurs for your special occasions."
+  ],
+  [
+    "title" => "Hourly Rentals",
+    "description" => "Flexible hourly packages for shopping, meetings or multiple stops in the city."
+  ]
+];
+
+// Default icons mapping (make sure index aligns with $taxiServices array)
+$serviceIcons = [
+  'fa-plane',        // Airport Transfers
+  'fa-city',         // City Rides
+  'fa-route',        // Outstation Trips
+  'fa-briefcase',    // Corporate Rides
+  'fa-heart',        // Wedding Car Rentals
+  'fa-clock'         // Hourly Rentals
+];
 ?>
 
 <!-- Start Our Taxi Service Section -->
@@ -20,45 +52,33 @@ $taxiServices = $jsonDecodedData['cars_section']['taxi_services'];
 
     <!-- Services Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      <?php
-      $serviceIcons = [
-        'fa-plane',           // Airport Transfers
-        'fa-city',            // City Rides
-        'fa-route',           // Outstation Trips
-        'fa-briefcase',       // Corporate Rides
-        'fa-heart',           // Wedding Car Rentals
-        'fa-clock'            // Hourly Rentals
-      ];
-
-      foreach ($taxiServices as $index => $service):
+      <?php foreach ($taxiServices as $index => $service):
+        // Safe icon fallback
+        $iconClass = $serviceIcons[$index] ?? 'fa-car';
       ?>
         <div class="group relative bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-orange-200">
           <!-- Background Gradient Effect -->
           <div class="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
           <!-- Content -->
-          <div class="relative z-10">
-            <!-- Icon -->
-            <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <i class="fa <?= $serviceIcons[$index] ?> text-white text-2xl"></i>
+          <div class="relative z-10 flex flex-col items-center text-left md:text-center">
+            <div class="w-full flex flex-row justify-start items-center gap-x-6 ">
+              <!-- Icon -->
+              <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <i class="fa <?= htmlspecialchars($iconClass) ?> text-white text-2xl"></i>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-4xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-orange-700 transition-colors duration-300">
+                <?= htmlspecialchars($service['title'] ?? '') ?>
+              </h3>
             </div>
 
-            <!-- Title -->
-            <h3 class="text-xl lg:text-2xl font-bold text-gray-900 text-center mb-4 group-hover:text-orange-700 transition-colors duration-300">
-              <?= htmlspecialchars($service['title']) ?>
-            </h3>
 
             <!-- Description -->
-            <p class="text-gray-600 text-center leading-relaxed text-sm lg:text-base">
-              <?= htmlspecialchars($service['description']) ?>
+            <p class="text-gray-600 leading-relaxed text-sm lg:text-base">
+              <?= htmlspecialchars($service['description'] ?? '') ?>
             </p>
-
-            <!-- Hover Arrow -->
-            <div class="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-              <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                <i class="fa fa-arrow-right text-white text-sm"></i>
-              </div>
-            </div>
           </div>
         </div>
       <?php endforeach; ?>
