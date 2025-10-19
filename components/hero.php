@@ -1,5 +1,4 @@
 <?php
-// Hero section data
 $heroSlides = [
   [
     'id' => 1,
@@ -49,126 +48,12 @@ $heroSlides = [
 ];
 ?>
 
-<!-- Hero Section Start -->
-<section class="min-h-dvh flex items-center bg-gradient-to-br from-orange-700 via-orange-600 to-amber-500 relative overflow-hidden">
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 bg-black/10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/5 to-black/10"></div>
-
-  <div class="container mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-20 relative z-10">
-    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 xl:gap-16">
-
-      <!-- Left Content - Text Carousel -->
-      <div class="w-full lg:w-1/2 text-white flex flex-col justify-center">
-        <div id="heroTextCarousel" class="relative">
-          <?php foreach ($heroSlides as $index => $slide): ?>
-            <div class="carousel-slide absolute inset-0 transition-all duration-500 ease-in-out <?php echo $index === 0 ? 'active opacity-100' : 'opacity-0'; ?>" data-slide="<?php echo $slide['id']; ?>">
-
-              <!-- Badge -->
-              <div class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold mb-6 lg:mb-8 animate-fade-in">
-                <span class="mr-2">🚗</span>
-                Trusted Taxi Service
-              </div>
-
-              <!-- Title -->
-              <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 lg:mb-8">
-                <span class="text-yellow-300 block"><?php echo $slide['title_part1']; ?></span>
-                <span class="text-white block"><?php echo $slide['title_part2']; ?></span>
-              </h1>
-
-              <!-- Description -->
-              <div class="text-lg sm:text-xl text-gray-100 mb-6 lg:mb-8 leading-relaxed max-w-2xl">
-                <?php echo $slide['description']; ?>
-              </div>
-
-              <!-- Rating -->
-              <div class="flex items-center gap-3 mb-6 lg:mb-8">
-                <div class="flex text-yellow-300 text-lg">
-                  <?php
-                  $fullStars = floor($slide['rating']);
-                  $hasHalfStar = ($slide['rating'] - $fullStars) > 0;
-
-                  for ($i = 0; $i < $fullStars; $i++): ?>
-                    <i class="fas fa-star"></i>
-                  <?php endfor; ?>
-
-                  <?php if ($hasHalfStar): ?>
-                    <i class="fas fa-star-half-alt"></i>
-                  <?php endif; ?>
-                </div>
-                <span class="font-semibold text-white">
-                  <?php echo $slide['rating']; ?> (<?php echo $slide['reviews_count']; ?> Happy Travellers)
-                </span>
-              </div>
-
-              <!-- Features -->
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 lg:mb-10">
-                <?php foreach ($slide['features'] as $feature): ?>
-                  <div class="flex items-center gap-3 bg-white/10 rounded-lg p-3 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-white/15">
-                    <i class="fas fa-<?php echo $feature['icon']; ?> text-yellow-300 text-lg"></i>
-                    <span class="font-medium text-white text-sm sm:text-base"><?php echo $feature['text']; ?></span>
-                  </div>
-                <?php endforeach; ?>
-              </div>
-
-              <!-- CTA Button -->
-              <a href="tel:<?php echo $phone; ?>" class="inline-flex items-center justify-center gap-3 bg-yellow-400 text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-orange-600">
-                <i class="fas fa-phone"></i>
-                <?php echo $slide['cta_text']; ?>
-              </a>
-            </div>
-          <?php endforeach; ?>
-        </div>
-
-        <!-- Carousel Indicators -->
-        <div class="flex gap-2 mt-8 lg:mt-10">
-          <?php foreach ($heroSlides as $index => $slide): ?>
-            <button class="carousel-indicator w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600 <?php echo $index === 0 ? 'bg-yellow-400 scale-110' : 'bg-white/50'; ?>"
-              data-slide-to="<?php echo $index; ?>"
-              aria-label="Go to slide <?php echo $index + 1; ?>"></button>
-          <?php endforeach; ?>
-        </div>
-      </div>
-
-      <!-- Right Car Images -->
-      <div class="w-full lg:w-1/2 relative flex justify-center">
-        <div id="heroImageCarousel" class="relative w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-2xl">
-          <?php foreach ($heroSlides as $index => $slide): ?>
-            <div class="carousel-slide transition-all duration-500 ease-in-out <?php echo $index === 0 ? 'active opacity-100' : 'opacity-0'; ?>" data-slide="<?php echo $slide['id']; ?>">
-              <img src="<?php echo $slide['image']; ?>"
-                alt="<?php echo $slide['title_part1']; ?>"
-                class="w-full h-auto rounded-2xl shadow-none object-contain">
-            </div>
-          <?php endforeach; ?>
-        </div>
-
-        <!-- Carousel Controls -->
-        <div class="absolute -bottom-6 sm:bottom-4 right-4 flex gap-2">
-          <button class="carousel-prev bg-white/20 text-white p-3 rounded-full backdrop-blur-sm hover:bg-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600" aria-label="Previous slide">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="carousel-next bg-white/20 text-white p-3 rounded-full backdrop-blur-sm hover:bg-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600" aria-label="Next slide">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-
-        <!-- Floating Badge -->
-        <div class="absolute -top-4 -left-4 bg-gradient-to-r from-orange-600 to-amber-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-lg">
-          <div class="flex items-center gap-2 text-sm sm:text-base">
-            <i class="fas fa-shield-alt"></i>
-            <span class="font-bold">Safe & Secure</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End Hero Section -->
-
+<?php
+$custom_css = '
 <style>
   .carousel-slide {
     opacity: 0;
     transform: translateX(20px);
-    transition: all 0.5s ease-in-out;
     pointer-events: none;
   }
 
@@ -176,19 +61,6 @@ $heroSlides = [
     opacity: 1;
     transform: translateX(0);
     pointer-events: all;
-  }
-
-  /* Smooth animations for slide content */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   @keyframes fadeIn {
@@ -202,149 +74,134 @@ $heroSlides = [
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.6s ease-out;
-  }
-
-  .carousel-slide.active>* {
-    animation: fadeInUp 0.6s ease-out;
-  }
-
-  .carousel-slide.active>*:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-
-  .carousel-slide.active>*:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-
-  .carousel-slide.active>*:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-
-  .carousel-slide.active>*:nth-child(4) {
-    animation-delay: 0.4s;
-  }
-
-  .carousel-slide.active>*:nth-child(5) {
-    animation-delay: 0.5s;
-  }
-
-  .carousel-slide.active>*:nth-child(6) {
-    animation-delay: 0.6s;
+    animation: fadeIn 0.6s ease-in;
   }
 </style>
+';
+?>
 
+<!-- ✅ Hero Section Start -->
+<section class="relative flex items-center overflow-hidden bg-gradient-to-br from-orange-700 via-orange-600 to-amber-500">
+  <!-- Decorative Pattern -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_60%)]"></div>
+
+  <div class="relative z-10 container mx-auto px-4 md:px-6 lg:px-10 py-16 flex flex-col lg:flex-row items-center gap-10">
+
+    <!-- ✅ Left Content -->
+    <div class="relative w-full lg:w-1/2 text-white">
+      <div id="heroTextCarousel" class="relative min-h-[470px]">
+        <?php foreach ($heroSlides as $index => $slide): ?>
+          <div class="carousel-slide absolute inset-0 transition-all duration-700 ease-in-out <?php echo $index === 0 ? 'active opacity-100 translate-x-0' : 'opacity-0 translate-x-10'; ?>">
+
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+              <span class="inline text-yellow-300"><?php echo $slide['title_part1']; ?></span>
+              <span class="inline text-white"><?php echo $slide['title_part2']; ?></span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-lg sm:text-md text-gray-100 mb-6 leading-relaxed max-w-xl"><?php echo $slide['description']; ?></p>
+
+            <!-- Rating -->
+            <div class="flex items-center gap-2 mb-5">
+              <div class="text-yellow-300">
+                <?php
+                $fullStars = floor($slide['rating']);
+                $hasHalfStar = ($slide['rating'] - $fullStars) > 0;
+                for ($i = 0; $i < $fullStars; $i++): ?><i class="fas fa-star"></i><?php endfor;
+                                                                                if ($hasHalfStar): ?><i class="fas fa-star-half-alt"></i><?php endif; ?>
+              </div>
+              <span class="text-white font-medium"><?php echo $slide['rating']; ?> (<?php echo $slide['reviews_count']; ?>+ travellers)</span>
+            </div>
+
+            <!-- Features -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+              <?php foreach ($slide['features'] as $feature): ?>
+                <div class="flex items-center gap-3 bg-white/10 hover:bg-white/20 transition rounded-lg p-3 backdrop-blur-sm">
+                  <i class="fas fa-<?php echo $feature['icon']; ?> text-yellow-300"></i>
+                  <span class="text-sm font-medium"><?php echo $feature['text']; ?></span>
+                </div>
+              <?php endforeach; ?>
+            </div>
+
+            <!-- CTA -->
+            <a href="tel:+919000000000"
+              class="inline-flex items-center gap-3 bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg text-lg font-bold hover:bg-yellow-300 transition transform hover:-translate-y-1 shadow-lg">
+              <i class="fas fa-phone"></i> <?php echo $slide['cta_text']; ?>
+            </a>
+          </div>
+        <?php endforeach; ?>
+      </div>
+
+
+    </div>
+
+    <!-- ✅ Right Image -->
+    <div class="w-full lg:w-1/2 relative">
+      <div id="heroImageCarousel" class="relative aspect-[4/3] w-full max-w-lg mx-auto">
+        <?php foreach ($heroSlides as $index => $slide): ?>
+          <div class="carousel-slide absolute inset-0 transition-all duration-700 ease-in-out <?php echo $index === 0 ? 'active opacity-100 translate-x-0' : 'opacity-0 translate-x-10'; ?>">
+            <img src="<?php echo $slide['image']; ?>" alt="<?php echo $slide['title_part1']; ?>" class="w-full h-full object-contain drop-shadow-2xl" />
+          </div>
+        <?php endforeach; ?>
+      </div>
+
+      <!-- Controls -->
+      <div class="absolute bottom-4 right-4 flex gap-3">
+        <button class="carousel-prev bg-white/20 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-md"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-next bg-white/20 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-md"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Carousel Script -->
+<?php
+$head_scripts = <<<EOD
 <script>
-  // Custom Carousel Functionality
   class HeroCarousel {
     constructor() {
-      this.currentSlide = 0;
+      this.current = 0;
       this.textSlides = document.querySelectorAll('#heroTextCarousel .carousel-slide');
       this.imageSlides = document.querySelectorAll('#heroImageCarousel .carousel-slide');
       this.indicators = document.querySelectorAll('.carousel-indicator');
-      this.totalSlides = this.textSlides.length;
-      this.autoPlayInterval = null;
-      this.isTransitioning = false;
-
-      this.init();
+      this.total = this.textSlides.length;
+      this.autoPlay = null;
+      this.bindEvents();
+      this.start();
     }
 
-    init() {
-      // Add event listeners
-      document.querySelector('.carousel-prev')?.addEventListener('click', () => this.prev());
-      document.querySelector('.carousel-next')?.addEventListener('click', () => this.next());
-
-      // Indicator clicks
-      this.indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => this.goToSlide(index));
-      });
-
-      // Keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') this.prev();
-        if (e.key === 'ArrowRight') this.next();
-      });
-
-      // Auto-play
-      this.startAutoPlay();
-
-      // Pause on hover
-      const carouselContainer = document.getElementById('heroTextCarousel');
-      if (carouselContainer) {
-        carouselContainer.addEventListener('mouseenter', () => this.stopAutoPlay());
-        carouselContainer.addEventListener('mouseleave', () => this.startAutoPlay());
-      }
+    bindEvents() {
+      document.querySelector('.carousel-prev').addEventListener('click', () => this.prev());
+      document.querySelector('.carousel-next').addEventListener('click', () => this.next());
+      this.indicators.forEach((btn, i) => btn.addEventListener('click', () => this.show(i)));
     }
 
-    showSlide(index) {
-      if (this.isTransitioning || index === this.currentSlide) return;
-
-      this.isTransitioning = true;
-
-      // Hide all slides
-      this.textSlides.forEach(slide => {
-        slide.classList.remove('active');
-        slide.classList.add('opacity-0');
-      });
-
-      this.imageSlides.forEach(slide => {
-        slide.classList.remove('active');
-        slide.classList.add('opacity-0');
-      });
-
-      // Show current slide
-      setTimeout(() => {
-        this.textSlides[index].classList.add('active');
-        this.textSlides[index].classList.remove('opacity-0');
-
-        this.imageSlides[index].classList.add('active');
-        this.imageSlides[index].classList.remove('opacity-0');
-
-        // Update indicators
-        this.indicators.forEach((indicator, i) => {
-          if (i === index) {
-            indicator.classList.add('bg-yellow-400', 'scale-110');
-            indicator.classList.remove('bg-white/50');
-          } else {
-            indicator.classList.remove('bg-yellow-400', 'scale-110');
-            indicator.classList.add('bg-white/50');
-          }
-        });
-
-        this.currentSlide = index;
-        this.isTransitioning = false;
-      }, 50);
+    show(i) {
+      this.textSlides.forEach(s => s.classList.remove('active', 'opacity-100', 'translate-x-0'));
+      this.imageSlides.forEach(s => s.classList.remove('active', 'opacity-100', 'translate-x-0'));
+      this.indicators.forEach((btn, idx) =>
+        btn.classList.toggle('bg-yellow-400', idx === i)
+      );
+      this.textSlides[i].classList.add('active', 'opacity-100', 'translate-x-0');
+      this.imageSlides[i].classList.add('active', 'opacity-100', 'translate-x-0');
+      this.current = i;
     }
 
     next() {
-      const nextSlide = (this.currentSlide + 1) % this.totalSlides;
-      this.showSlide(nextSlide);
+      this.show((this.current + 1) % this.total);
     }
 
     prev() {
-      const prevSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-      this.showSlide(prevSlide);
+      this.show((this.current - 1 + this.total) % this.total);
     }
 
-    goToSlide(index) {
-      this.showSlide(index);
-    }
-
-    startAutoPlay() {
-      this.stopAutoPlay();
-      this.autoPlayInterval = setInterval(() => this.next(), 5000);
-    }
-
-    stopAutoPlay() {
-      if (this.autoPlayInterval) {
-        clearInterval(this.autoPlayInterval);
-        this.autoPlayInterval = null;
-      }
+    start() {
+      this.autoPlay = setInterval(() => this.next(), 6000);
     }
   }
 
-  // Initialize carousel when DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    new HeroCarousel();
-  });
+  document.addEventListener('DOMContentLoaded', () => new HeroCarousel());
 </script>
+EOD;
+?>
