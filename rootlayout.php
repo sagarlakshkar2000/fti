@@ -1,8 +1,4 @@
-<?php
-include 'includes/seo.php';
-const phone = '+916377134276';
-const email = 'famoustoursindia@gmail.com';
-?>
+<?php include 'includes/seo.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 

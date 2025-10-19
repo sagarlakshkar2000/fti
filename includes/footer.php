@@ -1,3 +1,7 @@
+<?php
+include('./utils/info.php');
+?>
+
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -18,10 +22,9 @@
             <div class="col-md-4 mb-4">
                 <h5>Useful Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -29,16 +32,18 @@
             <div class="col-md-4 mb-4">
                 <h5>Contact Us</h5>
                 <p class="mb-0"><strong>Phone:</strong>
-                    <a href="tel:+<?php echo (phone); ?>"> <?php echo (phone); ?></a>
+                    <a href="tel:<?php echo $phone; ?>"> <?php echo $phone; ?></a>
                 </p>
 
                 <p class="mb-0"><strong>Email:</strong>
-                    <a href="mailto:<?php echo (email); ?>"><?php echo (email); ?></a>
+                    <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
                 </p>
 
                 <div class="social-icons mt-2">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="<?php echo $facebook; ?>"><i class="fab fa-facebook-f"></i></a>
+                    <a href="<?php echo $instagram; ?>"><i class="fab fa-instagram"></i></a>
+                    <a href="<?php echo $linkedin; ?>"><i class="fab fa-linkedin"></i></a>
+                    <a href="<?php echo $x; ?>"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
@@ -82,12 +87,13 @@
 
 <div class="contact-container">
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/your-number" target="_blank" class="whatsapp-btn">
+    <a href="https://wa.me/<?php echo $phone; ?>?text=Hello%20Famous%20Tours%20India%2C%20I%20want%20to%20book%20a%20taxi%20service."
+        target="_blank" class="whatsapp-btn">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <!-- Call Floating Button -->
-    <a href="tel:8107968806" class="call-btn">
+    <a href="tel:<?php echo ($phone); ?>" class="call-btn">
         <i class="fa-solid fa-phone"></i>
     </a>
 </div>

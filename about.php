@@ -1,13 +1,14 @@
 <?php
+include('./utils/info.php');
+
 // Page specific SEO
 $page_title = "FTI Travel | Explore Best Travel Packages";
 $page_description = "Book your dream travel package with FTI Travel. Affordable trips, luxury vacations, and adventure tours worldwide.";
 $page_keywords = "travel, tour packages, holidays, vacations, FTI Travel";
 $page_canonical = "https://www.ftitravel.com/";
 // Page content
-ob_start(); ?>
+ob_start();
 
-<?php
 // Read JSON file
 $jsonData = file_get_contents('data/cars.json');
 $jsonDecodedData = json_decode($jsonData, true);
@@ -30,7 +31,6 @@ $memories = [
 ];
 
 ?>
-
 <nav aria-label="breadcrumb" class="custom-breadcrumb-container  container-fluid py-2 rounded-3">
     <h3>about Quick Cab Services Jaipur</h3>
     <ol class="breadcrumb mb-0 custom-breadcrumb">
@@ -222,7 +222,7 @@ $memories = [
     <div class="container">
         <h2 class="mb-4">Ready to Explore India?</h2>
         <p class="lead mb-4">Book your trip or contact us for customized tour packages!</p>
-        <a href="#" class="btn btn-primary btn-lg me-3">Book Your Trip Now</a>
+        <a href="tel:<?php echo $phone; ?>" class="btn btn-primary btn-lg me-3">Book Your Trip Now</a>
         <a href="https://wa.me/<?php echo $phone; ?>" class="btn whatsapp-btn btn-lg"><i
                 class="fab fa-whatsapp me-2"></i> WhatsApp Us</a>
         <a href="tel:<?php echo $phone; ?>" class="btn btn-primary btn-lg ms-3"><i class="fas fa-phone me-2"></i> Call

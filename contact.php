@@ -1,4 +1,6 @@
 <?php
+include('./utils/info.php');
+
 // Page specific SEO
 $page_title = "Contact Us | Explore Best Travel Packages";
 $page_description = "Get in touch with FTI Travel for inquiries about our travel packages. We're here to help you plan your dream vacation.";
@@ -19,7 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Page content
-ob_start(); ?>
+ob_start();
+?>
 
 <nav aria-label="breadcrumb" class="custom-breadcrumb-container container-fluid py-2 rounded-3">
     <h3>Get in Touch – Your Journey with Famous Tours India Begins Here</h3>
@@ -41,9 +44,10 @@ ob_start(); ?>
                 <h2>Contact Us</h2>
                 <p>We’d love to hear from you! Reach out to us with any questions or tour inquiries.</p>
                 <p><strong>📍 Address:</strong> Jaipur, Rajasthan, India</p>
-                <p><strong>📞 Phone:</strong> <a href="tel:+916377134276" class="text-white">+91 6377134276</a></p>
-                <p><strong>📧 Email:</strong> <a href="mailto:famoustoursindia@gmail.com"
-                        class="text-white">famoustoursindia@gmail.com</a>
+                <p><strong>📞 Phone:</strong> <a href="tel:<?php echo $phone; ?>"
+                        class="text-white"><?php echo $phone; ?></a></p>
+                <p><strong>📧 Email:</strong> <a href="mailto:<?php echo $email; ?>"
+                        class="text-white"><?php echo $email; ?></a>
                 </p>
             </div>
 
