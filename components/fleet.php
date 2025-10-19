@@ -1,157 +1,155 @@
 <?php
 // Section data
-$jsonData = file_get_contents('./utils/data/cars.json');
-$jsonDecodedData = json_decode($jsonData, true);
-$title = $jsonDecodedData['cars_section']['title'];
-$description = $jsonDecodedData['cars_section']['description'];
-$tours = $jsonDecodedData['cars_section']['cars'];
-
-// Custom CSS
-ob_start();
-?>
-<style>
-  /* Travel-themed styles */
-  .travel-fleet-section {
-    font-family: 'Inter', system-ui, sans-serif;
-    background: linear-gradient(to bottom, #e0f2fe, #f8fafc);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .car-card {
-    background: white;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .car-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .car-image-container {
-    position: relative;
-    height: 230px;
-  }
-
-  .car-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-
-  .car-card:hover .car-image {
-    transform: scale(1.03);
-  }
-
-  .car-content {
-    padding: 1rem;
-  }
-
-  .car-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1e3a8a;
-    margin-bottom: 0.5rem;
-  }
-
-  .car-capacity {
-    font-size: 0.9rem;
-    color: #64748b;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .book-now-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: #3b82f6;
-    color: white;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: background 0.3s ease;
-  }
-
-  .book-now-btn:hover {
-    background: #1e40af;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 640px) {
-    .car-card {
-      margin-bottom: 1rem;
-    }
-
-    .car-image-container {
-      height: 150px;
-    }
-
-    .car-title {
-      font-size: 1.1rem;
-    }
-
-    .car-capacity {
-      font-size: 0.85rem;
-    }
-  }
-</style>
-<?php
-$custom_css = ob_get_clean();
-
-// Additional meta tags
-$additional_meta = [
-  '<meta name="robots" content="index, follow">',
-  '<meta name="author" content="Your Travel Company">',
-  '<link rel="preconnect" href="https://fonts.googleapis.com">',
-  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+$fleetData = [
+  "title" => "Choose your Taxi to Hire",
+  "description" => "Choose from a wide selection of vehicles, perfect for your travel preferences and budget needs.",
+  "cars" => [
+    [
+      "name" => "Swift Desire",
+      "image" => "./public/assets/images/swift-desire-fti.png",
+      "link" => "/swift-dzire-car-hire-in-jaipur",
+      "rating" => 4.0,
+      "reviews" => 1389,
+      "specifications" => [
+        "seating_capacity" => "4 Person",
+        "air_conditioning" => "Yes"
+      ],
+      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Swift%20Desire.%20Please%20let%20me%20know%20the%20availability."
+    ],
+    [
+      "name" => "Hyundai Aura",
+      "image" => "./public/assets/images/hyundai-aura-fti.jpg",
+      "link" => "/hyundai-aura-car-hire-in-jaipur",
+      "rating" => 4.5,
+      "reviews" => 125,
+      "specifications" => [
+        "seating_capacity" => "4 Person",
+        "air_conditioning" => "Yes"
+      ],
+      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Hyundai%20Aura.%20Please%20let%20me%20know%20the%20availability."
+    ],
+    [
+      "name" => "Toyota Etios",
+      "image" => "./public/assets/images/toyota-etios-fti.png",
+      "link" => "/toyota-etios-car-rental-in-jaipur",
+      "rating" => 4.0,
+      "reviews" => 173,
+      "specifications" => [
+        "seating_capacity" => "4 Person",
+        "air_conditioning" => "Yes"
+      ],
+      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%Toyota%Etios.%20Please%20let%20me%20know%20the%20availability."
+    ],
+    [
+      "name" => "Maruti Ciaz",
+      "image" => "./public/assets/images/maruti-ciaz-fti.jpg",
+      "link" => "/maruti-ciaz-car-rental-in-jaipur",
+      "rating" => 4.0,
+      "reviews" => 78,
+      "specifications" => [
+        "seating_capacity" => "4 Person",
+        "air_conditioning" => "Yes"
+      ],
+      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Maruti%20Ciaz.%20Please%20let%20me%20know%20the%20availability."
+    ],
+    [
+      "name" => "Maruti Ertiga",
+      "image" => "./public/assets/images/maruti-ertiga-2-fti.png",
+      "link" => "/ertiga-car-rental-in-jaipur",
+      "rating" => 4.0,
+      "reviews" => 724,
+      "specifications" => [
+        "seating_capacity" => "6 Person",
+        "air_conditioning" => "Yes"
+      ],
+      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Maruti%20Ertiga.%20Please%20let%20me%20know%20the%20availability."
+    ],
+    [
+      "name" => "Kia Carens",
+      "image" => "./public/assets/images/kia-carens-fti.png",
+      "link" => "/kia-carens-car-rental-in-jaipur",
+      "rating" => 4.5,
+      "reviews" => 246,
+      "specifications" => [
+        "seating_capacity" => "6 Person",
+        "air_conditioning" => "Yes"
+      ],
+      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Kia%20Carens.%20Please%20let%20me%20know%20the%20availability."
+    ],
+    [
+      "name" => "Innova",
+      "image" => "./public/assets/images/innova-1-fti.png",
+      "link" => "/innova-car-rental-in-jaipur",
+      "rating" => 4.0,
+      "reviews" => 1078,
+      "specifications" => [
+        "seating_capacity" => "6 Person",
+        "air_conditioning" => "Yes"
+      ],
+      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Toyota%20Innova.%20Please%20let%20me%20know%20the%20availability."
+    ],
+    [
+      "name" => "Innova Crysta",
+      "image" => "./public/assets/images/Innova-Crysta-fti.png",
+      "link" => "/innova-crysta-car-rental-in-jaipur",
+      "rating" => 4.0,
+      "reviews" => 2724,
+      "specifications" => [
+        "seating_capacity" => "6 Person",
+        "air_conditioning" => "Yes"
+      ],
+      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%Innova%Crysta.%20Please%20let%20me%20know%20the%20availability."
+    ],
+    [
+      "name" => "Innova Hycross",
+      "image" => "./public/assets/images/Innova-Hycross-fti.jpg",
+      "link" => "/innova-hycross-car-rental-in-jaipur",
+      "rating" => 4.0,
+      "reviews" => 817,
+      "specifications" => [
+        "seating_capacity" => "6 Person",
+        "air_conditioning" => "Yes"
+      ],
+      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%Innova%Hycross.%20Please%20let%20me%20know%20the%20availability."
+    ]
+  ]
 ];
-
-// Page Content
-ob_start();
 ?>
 <!-- Start Travel Fleet Section -->
-<section class="travel-fleet-section py-12 md:py-16 relative">
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;utf8,<svg width=\" 60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\">
-    <path fill=\"%23bfdbfe\" d=\"M30 0L32 28L60 30L32 32L30 60L28 32L0 30L28 28z\" /></svg>')]">
-  </div>
-
-  <div class="container mx-auto px-4 sm:px-6 relative z-10">
+<section class="py-12 md:py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
     <!-- Section Header -->
-    <div class="text-center mb-10 max-w-3xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-600 rounded-full px-4 py-2 mb-4">
-        <i class="fa-solid fa-car text-sm"></i>
-        <span class="text-sm font-medium">Travel in Style</span>
-      </div>
-      <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4"><?= $title; ?></h2>
-      <p class="text-lg text-slate-600 leading-relaxed"><?= $description; ?></p>
+    <div class="text-center mb-12 max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3"><?= $fleetData['title'] ?></h2>
+      <p class="text-gray-600 text-lg md:text-xl"><?= $fleetData['description'] ?></p>
     </div>
 
     <!-- Fleet Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <?php foreach ($tours as $tour): ?>
-        <div class="car-card">
-          <!-- Image Container -->
-          <div class="car-image-container">
-            <img src="<?= $tour['image']; ?>" alt="<?= $tour['name']; ?>" class="car-image">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <?php foreach ($fleetData['cars'] as $fleet): ?>
+        <div class="bg-white rounded-xl border-2 border-transparent hover:border-orange-500 shadow-xs hover:shadow-xs transition-transform transform flex flex-col overflow-hidden">
+          <!-- Car Image -->
+          <div class="relative h-72 md:h-62 w-full overflow-hidden">
+            <img src="<?= $fleet['image'] ?>" alt="<?= $fleet['name'] ?>" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+            <!-- Rating Badge -->
+            <div class="absolute top-2 right-2 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1 shadow">
+              <i class="fa-solid fa-star text-gray-900"></i>
+              <span><?= $fleet['rating'] ?? 'N/A' ?></span>
+            </div>
           </div>
 
-          <!-- Card Content -->
-          <div class="car-content">
-            <h3 class="car-title"><?= $tour['name']; ?></h3>
-            <div class="car-capacity">
-              <i class="fa-solid fa-user-group text-sm text-blue-600"></i>
-              <span><?= $tour['specifications']['seating_capacity']; ?> Seats</span>
+          <!-- Car Content -->
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-lg md:text-xl font-semibold text-orange-600 mb-2"><?= $fleet['name'] ?></h3>
+
+            <!-- Specs -->
+            <div class="flex flex-wrap gap-3 text-gray-600 text-sm mb-4">
+              <div class="flex items-center gap-1"><i class="fa-solid fa-user-group text-orange-500"></i> <?= $fleet['specifications']['seating_capacity'] ?? 'N/A' ?></div>
+              <div class="flex items-center gap-1"><i class="fa-solid fa-snowflake text-blue-500"></i> <?= $fleet['specifications']['air_conditioning'] ?? 'N/A' ?></div>
             </div>
-            <a href="<?= $tour['whatsapp_link']; ?>" target="_blank" class="book-now-btn">
+
+            <!-- Book Now Button -->
+            <a href="<?= $fleet['whatsapp_link'] ?>" target="_blank" class="mt-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-400 text-white px-4 py-2 rounded-lg font-medium hover:from-orange-600 hover:to-amber-500 transition">
               <i class="fa-brands fa-whatsapp"></i> Book Now
             </a>
           </div>
@@ -160,8 +158,3 @@ ob_start();
     </div>
   </div>
 </section>
-<!-- End Travel Fleet Section -->
-<?php
-$page_content = ob_get_clean();
-echo $custom_css . implode("\n", $additional_meta) . $page_content;
-?>
