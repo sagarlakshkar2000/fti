@@ -67,8 +67,8 @@ $additional_meta = $additional_meta ?? [];
         theme: {
           extend: {
             colors: {
-              primary: '#3a86ff',
-              secondary: '#ff006e',
+              primary: '#d44712',
+              secondary: '#fa7d1a',
               dark: '#1a1a2e',
               light: '#f8f9fa',
               accent: '#8338ec',

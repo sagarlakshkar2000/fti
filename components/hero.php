@@ -82,16 +82,13 @@ $custom_css = '
 
 <!-- ✅ Hero Section Start -->
 <section class="relative flex items-center overflow-hidden bg-gradient-to-br from-orange-700 via-orange-600 to-amber-500">
-  <!-- Decorative Pattern -->
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_60%)]"></div>
-
-  <div class="relative z-10 container mx-auto px-4 md:px-6 lg:px-10 py-16 flex flex-col lg:flex-row items-center gap-10">
+  <div class="relative z-10 container mx-auto px-2 md:px-6 lg:px-10 py-16 flex flex-col lg:flex-row items-center gap-10">
 
     <!-- ✅ Left Content -->
     <div class="relative w-full lg:w-1/2 text-white">
       <div id="heroTextCarousel" class="relative min-h-[470px]">
         <?php foreach ($heroSlides as $index => $slide): ?>
-          <div class="carousel-slide absolute inset-0 transition-all duration-700 ease-in-out <?php echo $index === 0 ? 'active opacity-100 translate-x-0' : 'opacity-0 translate-x-10'; ?>">
+          <div class="carousel-slide absolute inset-0 transition-all duration-700 ease-in-out <?php echo $index === 0 ? 'active opacity-100 translate-x-0' : 'opacity-0 md:translate-x-10'; ?>">
 
             <!-- Title -->
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
@@ -140,14 +137,14 @@ $custom_css = '
     <div class="w-full lg:w-1/2 relative">
       <div id="heroImageCarousel" class="relative aspect-[4/3] w-full max-w-lg mx-auto">
         <?php foreach ($heroSlides as $index => $slide): ?>
-          <div class="carousel-slide absolute inset-0 transition-all duration-700 ease-in-out <?php echo $index === 0 ? 'active opacity-100 translate-x-0' : 'opacity-0 translate-x-10'; ?>">
+          <div class="carousel-slide absolute top-30 md:top-0 inset-0 transition-all duration-700 ease-in-out <?php echo $index === 0 ? 'active opacity-100 translate-x-0' : 'opacity-0 md:translate-x-10'; ?>">
             <img src="<?php echo $slide['image']; ?>" alt="<?php echo $slide['title_part1']; ?>" class="w-full h-full object-contain drop-shadow-2xl" />
           </div>
         <?php endforeach; ?>
       </div>
 
       <!-- Controls -->
-      <div class="absolute bottom-4 right-4 flex gap-3">
+      <div class="absolute bottom-[-40px] right-[50%] md:bottom-6 md:right-10 flex gap-3">
         <button class="carousel-prev bg-white/20 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-md"><i class="fas fa-chevron-left"></i></button>
         <button class="carousel-next bg-white/20 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-md"><i class="fas fa-chevron-right"></i></button>
       </div>

@@ -120,17 +120,17 @@ $fleetData = [
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="text-center mb-12 max-w-3xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3"><?= $fleetData['title'] ?></h2>
+      <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-3"><?= $fleetData['title'] ?></h2>
       <p class="text-gray-600 text-lg md:text-xl"><?= $fleetData['description'] ?></p>
     </div>
 
     <!-- Fleet Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <?php foreach ($fleetData['cars'] as $fleet): ?>
-        <div class="bg-white rounded-xl border-2 border-transparent hover:border-orange-500 shadow-xs hover:shadow-xs transition-transform transform flex flex-col overflow-hidden">
+        <div class="bg-white rounded-xl border-2 border-orange-500 hover:border-orange-500 shadow-xs hover:shadow-xs transition-transform transform flex flex-col overflow-hidden">
           <!-- Car Image -->
-          <div class="relative h-72 md:h-62 w-full overflow-hidden">
-            <img src="<?= $fleet['image'] ?>" alt="<?= $fleet['name'] ?>" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+          <div class="relative w-full h-72 md:h-62 w-full overflow-hidden">
+            <img src="<?= $fleet['image'] ?>" alt="<?= $fleet['name'] ?>" class="w-full h-full object-contain md:object-cover md:transition-transform md:duration-300 md:hover:scale-105">
             <!-- Rating Badge -->
             <div class="absolute top-2 right-2 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1 shadow">
               <i class="fa-solid fa-star text-gray-900"></i>
