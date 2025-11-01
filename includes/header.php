@@ -3,7 +3,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
 include './utils/info.php';
 $nav_items = [
   'Home' => 'index.php',
-  'Tours' => 'tours.php',
   'About' => 'about.php',
   'Contact' => 'contact.php'
 ];
@@ -86,21 +85,21 @@ $nav_items = [
       <div class="hidden lg:flex items-center space-x-8">
         <?php foreach ($nav_items as $label => $url): ?>
           <a href="<?= $url ?>"
-            class="font-medium text-black hover:text-blue-600 transition duration-300
-            <?= $current_page === $url ? 'text-blue-600 border-b-2 border-blue-600' : '' ?>">
+            class="font-medium text-black hover:text-orange-600 transition duration-300
+            <?= $current_page === $url ? 'text-orange-600 border-b border-orange-600' : '' ?>">
             <?= $label ?>
           </a>
         <?php endforeach; ?>
 
         <!-- Book Now Button -->
-        <a href="contact.php" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-medium">
+        <a href="contact.php" class="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition duration-300 font-medium">
           Book Now
         </a>
       </div>
 
       <!-- Mobile menu button -->
       <div class="lg:hidden flex items-center space-x-4">
-        <a href="contact.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">
+        <a href="contact.php" class="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-700">
           Book Now
         </a>
         <button id="mobile-menu-button" class="text-black p-2 rounded-lg hover:bg-gray-100">

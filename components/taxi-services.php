@@ -38,7 +38,7 @@ $serviceIcons = [
 ?>
 
 <!-- Start Our Taxi Service Section -->
-<section class="taxi-services bg-white py-12 md:py-16 lg:py-20">
+<section class="taxi-services bg-white md:px-4 py-12 md:py-16 lg:py-20">
   <div class="container mx-auto px-4 sm:px-6">
     <!-- Section Header -->
     <div class="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">

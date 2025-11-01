@@ -122,7 +122,7 @@ $custom_css = '
             </div>
 
             <!-- CTA -->
-            <a href="tel:+919000000000"
+            <a href="tel:<?php echo $phone; ?>"
               class="inline-flex items-center gap-3 bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg text-lg font-bold hover:bg-yellow-300 transition transform hover:-translate-y-1 shadow-lg">
               <i class="fas fa-phone"></i> <?php echo $slide['cta_text']; ?>
             </a>

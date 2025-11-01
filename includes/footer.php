@@ -3,7 +3,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
 include './utils/info.php';
 $nav_items = [
   'Home' => 'index.php',
-  'Tours' => 'tours.php',
   'About' => 'about.php',
   'Contact' => 'contact.php'
 ];
@@ -49,12 +48,6 @@ $nav_items = [
             <a href="/contact" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
               <i class="fas fa-phone text-orange-500 text-sm"></i>
               Contact Us
-            </a>
-          </li>
-          <li>
-            <a href="/tours" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
-              <i class="fas fa-route text-orange-500 text-sm"></i>
-              Tours
             </a>
           </li>
         </ul>

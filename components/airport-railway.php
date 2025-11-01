@@ -24,7 +24,7 @@ $custom_css = '
 ';
 ?>
 
-<section class="py-16 bg-gray-50">
+<section class="md:px-4 py-16 bg-gray-50">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
       <!-- Section Header -->

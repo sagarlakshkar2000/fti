@@ -116,7 +116,7 @@ $fleetData = [
 ];
 ?>
 <!-- Start Travel Fleet Section -->
-<section class="py-12 md:py-16 bg-gray-50">
+<section class="py-12 md:px-4 md:py-16 bg-gray-50">
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="text-center mb-12 max-w-3xl mx-auto">

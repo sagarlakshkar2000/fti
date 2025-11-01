@@ -28,7 +28,7 @@ $custom_css = '
 ';
 ?>
 
-<section class="py-16 bg-gradient-to-br from-amber-50 to-orange-50">
+<section class="md:px-4 py-16 bg-gradient-to-br from-amber-50 to-orange-50">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
