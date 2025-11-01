@@ -20,21 +20,6 @@ $custom_css = '
       padding-right: 1rem;
     }
   }
-
-  /* Mobile optimizations */
-  @media (max-width: 640px) {
-    .grid-cols-2 {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .flex-col {
-      flex-direction: column;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-  }
 </style>
 ';
 ?>

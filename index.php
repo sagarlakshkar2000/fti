@@ -10,6 +10,7 @@ $page_canonical = "https://www.famoustoursindia.com/";
 // Read JSON data
 $jsonData = file_get_contents('./utils/data/cars.json');
 $jsonDecodedData = json_decode($jsonData, true);
+$tourPackages = $jsonDecodedData['cars_section']['tourPackages'];
 
 // Page content
 ob_start();
@@ -21,7 +22,6 @@ ob_start();
 <?php include './components/fleet.php'; ?>
 
 <?php include './components/airport-railway.php'; ?>
-<?php include './components/cta.php'; ?>
 <?php include './components/rajasthan-tours.php'; ?>
 
 <?php
