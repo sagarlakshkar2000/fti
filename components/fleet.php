@@ -127,6 +127,18 @@ $fleetData = [
     <!-- Fleet Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <?php foreach ($fleetData['cars'] as $fleet): ?>
+        <?php
+        // Dynamic WhatsApp message
+        $message = "Hello Famous Tours India Taxi Service Jaipur! 👋\n"
+          . "I’m interested in booking a car.\n\n"
+          . "🚗 Car Name: {$fleet['name']}\n"
+          . "👥 Seating Capacity: {$fleet['specifications']['seating_capacity']}\n"
+          . "❄️ Air Conditioning: {$fleet['specifications']['air_conditioning']}\n\n"
+          . "Please let me know the availability and fare details.";
+
+        $urlMessage = urlencode($message);
+        ?>
+
         <div class="bg-white rounded-xl border-2 border-orange-500 hover:border-orange-500 shadow-xs hover:shadow-xs transition-transform transform flex flex-col overflow-hidden">
           <!-- Car Image -->
           <div class="relative w-full h-72 md:h-62 w-full overflow-hidden">
@@ -149,8 +161,7 @@ $fleetData = [
             </div>
 
             <!-- Book Now Button -->
-            <a href="https://wa.me/<?php echo $phone; ?>?<?php
-                                                          $fleet['whatsapp_link'] ?>" target=" _blank" class="mt-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-400 text-white px-4 py-2 rounded-lg font-medium hover:from-orange-600 hover:to-amber-500 transition">
+            <a href="https://wa.me/<?= $phone ?>?text=<?= $urlMessage ?>" target=" _blank" class="mt-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-400 text-white px-4 py-2 rounded-lg font-medium hover:from-orange-600 hover:to-amber-500 transition">
               <i class="fa-brands fa-whatsapp"></i> Book Now
             </a>
           </div>
