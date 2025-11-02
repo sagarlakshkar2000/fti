@@ -14,7 +14,7 @@ $fleetData = [
         "seating_capacity" => "4 Person",
         "air_conditioning" => "Yes"
       ],
-      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Swift%20Desire.%20Please%20let%20me%20know%20the%20availability."
+      "whatsapp_link" => "text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Swift%20Desire.%20Please%20let%20me%20know%20the%20availability."
     ],
     [
       "name" => "Hyundai Aura",
@@ -26,7 +26,7 @@ $fleetData = [
         "seating_capacity" => "4 Person",
         "air_conditioning" => "Yes"
       ],
-      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Hyundai%20Aura.%20Please%20let%20me%20know%20the%20availability."
+      "whatsapp_link" => "text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Hyundai%20Aura.%20Please%20let%20me%20know%20the%20availability."
     ],
     [
       "name" => "Toyota Etios",
@@ -38,7 +38,7 @@ $fleetData = [
         "seating_capacity" => "4 Person",
         "air_conditioning" => "Yes"
       ],
-      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%Toyota%Etios.%20Please%20let%20me%20know%20the%20availability."
+      "whatsapp_link" => "text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%Toyota%Etios.%20Please%20let%20me%20know%20the%20availability."
     ],
     [
       "name" => "Maruti Ciaz",
@@ -50,7 +50,7 @@ $fleetData = [
         "seating_capacity" => "4 Person",
         "air_conditioning" => "Yes"
       ],
-      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Maruti%20Ciaz.%20Please%20let%20me%20know%20the%20availability."
+      "whatsapp_link" => "text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Maruti%20Ciaz.%20Please%20let%20me%20know%20the%20availability."
     ],
     [
       "name" => "Maruti Ertiga",
@@ -62,7 +62,7 @@ $fleetData = [
         "seating_capacity" => "6 Person",
         "air_conditioning" => "Yes"
       ],
-      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Maruti%20Ertiga.%20Please%20let%20me%20know%20the%20availability."
+      "whatsapp_link" => "text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Maruti%20Ertiga.%20Please%20let%20me%20know%20the%20availability."
     ],
     [
       "name" => "Kia Carens",
@@ -74,7 +74,7 @@ $fleetData = [
         "seating_capacity" => "6 Person",
         "air_conditioning" => "Yes"
       ],
-      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Kia%20Carens.%20Please%20let%20me%20know%20the%20availability."
+      "whatsapp_link" => "text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Kia%20Carens.%20Please%20let%20me%20know%20the%20availability."
     ],
     [
       "name" => "Innova",
@@ -86,7 +86,7 @@ $fleetData = [
         "seating_capacity" => "6 Person",
         "air_conditioning" => "Yes"
       ],
-      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Toyota%20Innova.%20Please%20let%20me%20know%20the%20availability."
+      "whatsapp_link" => "text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%20Toyota%20Innova.%20Please%20let%20me%20know%20the%20availability."
     ],
     [
       "name" => "Innova Crysta",
@@ -98,7 +98,7 @@ $fleetData = [
         "seating_capacity" => "6 Person",
         "air_conditioning" => "Yes"
       ],
-      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%Innova%Crysta.%20Please%20let%20me%20know%20the%20availability."
+      "whatsapp_link" => "text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%Innova%Crysta.%20Please%20let%20me%20know%20the%20availability."
     ],
     [
       "name" => "Innova Hycross",
@@ -110,7 +110,7 @@ $fleetData = [
         "seating_capacity" => "6 Person",
         "air_conditioning" => "Yes"
       ],
-      "whatsapp_link" => "https=>//wa.me/918107968806?text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%Innova%Hycross.%20Please%20let%20me%20know%20the%20availability."
+      "whatsapp_link" => "text=Hi%20Quick%20Cab%20Services%20Jaipur!%20I%20am%20interested%20in%20booking%20a%20car.%20Car%20Name=>%Innova%Hycross.%20Please%20let%20me%20know%20the%20availability."
     ]
   ]
 ];
@@ -149,7 +149,8 @@ $fleetData = [
             </div>
 
             <!-- Book Now Button -->
-            <a href="<?= $fleet['whatsapp_link'] ?>" target="_blank" class="mt-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-400 text-white px-4 py-2 rounded-lg font-medium hover:from-orange-600 hover:to-amber-500 transition">
+            <a href="https://wa.me/<?php echo $phone; ?>?<?php
+                                                          $fleet['whatsapp_link'] ?>" target=" _blank" class="mt-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-400 text-white px-4 py-2 rounded-lg font-medium hover:from-orange-600 hover:to-amber-500 transition">
               <i class="fa-brands fa-whatsapp"></i> Book Now
             </a>
           </div>
