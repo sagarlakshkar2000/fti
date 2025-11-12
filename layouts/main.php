@@ -40,6 +40,19 @@ $additional_meta = $additional_meta ?? [];
   <meta property="og:url" content="<?= htmlspecialchars($page_canonical) ?>" />
   <meta property="og:image" content="<?= $og_image ?? 'https://www.ftitravel.com/assets/images/og-default.jpg' ?>" />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9TWH5HZBV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-K9TWH5HZBV');
+  </script>
+
   <!-- Additional Meta Tags -->
   <?php foreach ($additional_meta as $meta): ?>
     <?= $meta . "\n" ?>
