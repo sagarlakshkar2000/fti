@@ -2,9 +2,9 @@
 include('utils/info.php');
 
 // Page specific SEO
-$page_title = "FTI Travel | Explore Best Travel Packages";
-$page_description = "Book your dream travel package with FTI Travel. Affordable trips, luxury vacations, and adventure tours worldwide.";
-$page_keywords = "travel, tour packages, holidays, vacations, FTI Travel";
+$page_title = "FTI Travel Jaipur | Best Rajasthan Taxi & Tour Packages - Famous Tours India";
+$page_description = "Famous Tours India offers trusted taxi and travel packages in Jaipur & Rajasthan—airport pickup, sightseeing tours, Golden Triangle, and budget-friendly car rentals.";
+$page_keywords = "Jaipur taxi service, Rajasthan tour packages, Golden Triangle tour, cab booking Jaipur, airport taxi Jaipur, Khatu Shyam Ji taxi, Salasar Balaji tour, luxury car rental Jaipur, Rajasthan sightseeing, Jaipur to Agra cab, Jaipur to Delhi taxi, best travel agency Jaipur, city rides Jaipur, outstation trips Rajasthan";
 $page_canonical = "https://www.famoustoursindia.com/";
 
 // Read JSON data

@@ -3,9 +3,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
 include './utils/info.php';
 
 // Page specific SEO
-$page_title = "About Us | Explore Best Travel Packages";
-$page_description = "Get in touch with FTI Travel for inquiries about our travel packages. We're here to help you plan your dream vacation.";
-$page_keywords = "About, travel inquiries, FTI Travel";
+$page_title = "About Us | Famous Tours India – Best Travel Agency in Jaipur & Rajasthan";
+$page_description = "Learn about Famous Tours India (FTI Travel), a leading travel agency in Jaipur offering reliable taxi services, customized Rajasthan tour packages, and city sightseeing with expert support.";
+$page_keywords = "about Famous Tours India, travel agency Jaipur, Rajasthan tour experts, Jaipur city tours, best taxi service Jaipur, travel company India, Rajasthan travel agency, FTI Travel Jaipur";
 $page_canonical = "https://www.famoustoursindia.com/about.php";
 
 // Page content

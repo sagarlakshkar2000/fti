@@ -3,9 +3,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
 include './utils/info.php';
 
 // Page specific SEO
-$page_title = "Contact Us | Explore Best Travel Packages";
-$page_description = "Get in touch with FTI Travel for inquiries about our travel packages. We're here to help you plan your dream vacation.";
-$page_keywords = "contact, travel inquiries, FTI Travel";
+$page_title = "Contact Us | Famous Tours India – Book Taxi & Tour Packages Jaipur";
+$page_description = "Contact Famous Tours India for taxi bookings, Rajasthan tour packages, and sightseeing inquiries. 24/7 customer support for Jaipur, Golden Triangle, and religious tours.";
+$page_keywords = "contact Famous Tours India, Jaipur taxi booking, Rajasthan package inquiry, tour contact Jaipur, book cab Jaipur, Golden Triangle support, travel agency Jaipur contact, FTI Travel phone, Rajasthan travel help";
 $page_canonical = "https://www.famoustoursindia.com/contact.php";
 
 // Page content
