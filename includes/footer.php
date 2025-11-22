@@ -1,10 +1,12 @@
 <?php
-$current_page = basename($_SERVER['PHP_SELF']);
-include './utils/info.php';
+$assets = include __DIR__ . '/../config/assetsHandler.php';
+$header_assets = $assets['header_assets'];
+$info = $assets['info_urls'];
 $nav_items = [
-  'Home' => 'index.php',
-  'About' => 'about.php',
-  'Contact' => 'contact.php'
+  'Home' => BASE_URL,
+  'About' => BASE_URL . '/about',
+  'Contact' => BASE_URL . '/contact',
+  'Blog' => BASE_URL . '/blog',
 ];
 ?>
 
@@ -16,7 +18,7 @@ $nav_items = [
       <div class="lg:col-span-2">
         <div class="flex items-center gap-3 mb-4">
           <div class="rounded-lg">
-            <img src="./public/assets/images/logo.jpg" alt="FTI Travel" class="w-full h-20 md:h-15 rounded-lg">
+            <img src="<?php echo $header_assets['logo'] ?>" alt="FTI Travel" class="w-full h-20 md:h-15 rounded-lg">
           </div>
           <h3 class="text-2xl font-bold text-white">Famous Tours India</h3>
         </div>
@@ -33,21 +35,26 @@ $nav_items = [
         <h4 class="text-lg font-semibold text-white mb-4 border-b border-orange-500 pb-2">Quick Links</h4>
         <ul class="space-y-3">
           <li>
-            <a href="/" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
+            <a href="<?php echo $nav_items['Home'] ?>" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
               <i class="fas fa-home text-orange-500 text-sm"></i>
               Home
             </a>
           </li>
           <li>
-            <a href="/about" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
+            <a href="<?php echo $nav_items['About'] ?>" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
               <i class="fas fa-info-circle text-orange-500 text-sm"></i>
               About
             </a>
           </li>
           <li>
-            <a href="/contact" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
+            <a href="<?php echo $nav_items['Contact'] ?>" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
               <i class="fas fa-phone text-orange-500 text-sm"></i>
               Contact Us
+            </a>
+          </li>
+          <li>
+            <a href="<?php echo $nav_items['Blog'] ?>" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
+              Blog
             </a>
           </li>
         </ul>
@@ -62,9 +69,11 @@ $nav_items = [
               <i class="fas fa-phone text-white text-sm"></i>
             </div>
             <div>
-              <a href="tel:<?php echo $phone; ?>" class="text-white hover:text-orange-400 transition duration-300 font-semibold block">
-                <?php echo $phone; ?>
+              <a href="tel:<?= preg_replace('/\s+/', '', $info['phone']) ?>"
+                class="text-white hover:text-orange-400 transition duration-300 font-semibold block">
+                <?= htmlspecialchars($info['phone']) ?>
               </a>
+
               <span class="text-gray-400 text-sm">Call us anytime</span>
             </div>
           </div>
@@ -74,8 +83,9 @@ $nav_items = [
               <i class="fas fa-envelope text-white text-sm"></i>
             </div>
             <div>
-              <a href="mailto:<?php echo $email; ?>" class="text-white hover:text-orange-400 transition duration-300 font-semibold block">
-                <?php echo $email; ?>
+              <a href="mailto:<?= htmlspecialchars($info['email']) ?>"
+                class="text-white hover:text-blue-400 transition-colors duration-200">
+                <?= htmlspecialchars($info['email']) ?>
               </a>
               <span class="text-gray-400 text-sm">Email us</span>
             </div>
@@ -87,25 +97,25 @@ $nav_items = [
           <h5 class="text-white font-semibold mb-3">Follow Us</h5>
           <div class="flex gap-3">
             <!-- Facebook -->
-            <a href="<?php echo $facebook; ?>"
+            <a href="<?php echo $info['facebook']; ?>"
               class="bg-gray-800 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
               <i class="text-white fa-brands fa-facebook-f"></i>
             </a>
 
             <!-- Instagram -->
-            <a href="<?php echo $instagram; ?>"
+            <a href="<?php echo $info['instagram']; ?>"
               class="bg-gray-800 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
               <i class="text-white fa-brands fa-instagram"></i>
             </a>
 
             <!-- LinkedIn -->
-            <a href="<?php echo $linkedin; ?>"
+            <a href="<?php echo $info['linkedin']; ?>"
               class="bg-gray-800 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
               <i class="text-white fa-brands fa-linkedin-in"></i>
             </a>
 
             <!-- Twitter/X -->
-            <a href="<?php echo $x; ?>"
+            <a href="<?php echo $info['x']; ?>"
               class="bg-gray-800 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
               <i class="text-white fa-brands fa-x-twitter"></i>
             </a>
@@ -181,7 +191,7 @@ $nav_items = [
 <!-- Floating Action Buttons -->
 <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
   <!-- WhatsApp Button -->
-  <a href="https://wa.me/<?php echo $phone; ?>?text=Hello%20Famous%20Tours%20India%2C%20I%20want%20to%20book%20a%20taxi%20service."
+  <a href="https://wa.me/<?php echo $info['phone']; ?>?text=Hello%20Famous%20Tours%20India%2C%20I%20want%20to%20book%20a%20taxi%20service."
     target="_blank"
     class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group">
     <i class="fab fa-whatsapp text-xl"></i>
@@ -191,7 +201,7 @@ $nav_items = [
   </a>
 
   <!-- Call Button -->
-  <a href="tel:<?php echo $phone; ?>"
+  <a href="tel:<?php echo $info['phone']; ?>"
     class="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 group">
     <i class="fas fa-phone text-xl"></i>
     <span class="absolute right-12 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
