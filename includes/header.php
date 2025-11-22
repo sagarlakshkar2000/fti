@@ -1,12 +1,16 @@
 <?php
-$current_page = basename($_SERVER['PHP_SELF']);
-include './utils/info.php';
+$assets = include __DIR__ . '/../config/assetsHandler.php';
+$header_assets = $assets['header_assets'];
+$info = $assets['info_urls'];
 $nav_items = [
-  'Home' => 'index.php',
-  'About' => 'about.php',
-  'Contact' => 'contact.php'
+  'Home' => BASE_URL,
+  'About' => BASE_URL . '/about',
+  'Contact' => BASE_URL . '/contact',
+  'Blog' => BASE_URL . '/blog',
 ];
 ?>
+
+
 <header class="bg-white shadow-md sticky top-0 z-50">
   <div class="container mx-auto">
     <!-- Top Bar with Ratings -->
@@ -16,7 +20,7 @@ $nav_items = [
         <div class="flex items-center space-x-2">
           <div class="flex items-center">
             <!-- Google SVG Icon -->
-            <img src="./public/assets/images/icons/google.svg" alt="Google" class="w-5 h-5">
+            <img src="<?php echo $header_assets['google']; ?>" alt="Google" class="w-5 h-5">
           </div>
           <div class="flex items-center space-x-1">
             <span class="text-yellow-400">
@@ -26,7 +30,7 @@ $nav_items = [
               <i class="fas fa-star"></i>
               <i class="fas fa-star-half-alt"></i>
             </span>
-            <span class="text-white font-semibold">4.8+</span>
+            <span class="text-white font-semibold">4.9+</span>
           </div>
         </div>
 
@@ -34,7 +38,7 @@ $nav_items = [
         <div class="flex items-center space-x-2">
           <div class="flex items-center">
             <!-- TripAdvisor SVG Icon -->
-            <img src="./public/assets/images/icons/tripadvisor.svg" alt="TripAdvisor" class="w-full h-5">
+            <img src="<?php echo $header_assets['tripadvisor']; ?>" alt="TripAdvisor" class="w-full h-5">
           </div>
           <div class="flex items-center space-x-1">
             <span class="text-green-600">
@@ -53,16 +57,16 @@ $nav_items = [
       <div class="flex items-center space-x-4 text-sm">
         <div class="flex items-center space-x-1">
           <i class="fas fa-phone text-white"></i>
-          <a href="tel:<?= preg_replace('/\s+/', '', $phone) ?>"
+          <a href="tel:<?= preg_replace('/\s+/', '', $info['phone']) ?>"
             class="text-white hover:text-blue-400 transition-colors duration-200">
-            <?= htmlspecialchars($phone) ?>
+            <?= htmlspecialchars($info['phone']) ?>
           </a>
         </div>
         <div class="flex items-center space-x-1">
           <i class="fas fa-envelope text-white"></i>
-          <a href="mailto:<?= htmlspecialchars($email) ?>"
+          <a href="mailto:<?= htmlspecialchars($info['email']) ?>"
             class="text-white hover:text-blue-400 transition-colors duration-200">
-            <?= htmlspecialchars($email) ?>
+            <?= htmlspecialchars($info['email']) ?>
           </a>
         </div>
       </div>
@@ -71,10 +75,10 @@ $nav_items = [
     <!-- Main Navigation -->
     <nav class="flex justify-between items-center px-2 md:pl-4 md:pr-12 py-4 relative">
       <!-- Logo -->
-      <a href="index.php" class="flex items-center space-x-3">
+      <a href="<?php echo BASE_URL; ?>" class="flex items-center space-x-3">
         <div class="absolute top-2 md:top-1 md:left-5 rounded-full overflow-hidden md:shadow-md">
           <!-- Taxi SVG Icon -->
-          <img src="./public/assets/images/logo.jpg" alt="FTI Travel" class="w-full h-25 md:h-30 text-white">
+          <img src="<?php echo $header_assets['logo']; ?>" alt="FTI Travel" class="w-full h-25 md:h-30 text-white">
         </div>
         <div class="hidden md:block md:pl-35 ">
           <h3 class="md:text-2xl font-bold text-black uppercase">Famous Tours India</h3>
@@ -118,7 +122,7 @@ $nav_items = [
           <!-- Google Rating Mobile -->
           <div class="text-center">
             <div class="flex items-center justify-center space-x-1 mb-1">
-              <img src="./public/assets/images/icons/google.svg" alt="Google" class="w-8 h-8">
+              <img src="<?php echo $header_assets['google']; ?>" alt="Google" class="w-8 h-8">
             </div>
             <div class="flex items-center justify-center space-x-1">
               <span class="text-yellow-400 text-sm">
@@ -135,7 +139,7 @@ $nav_items = [
           <!-- TripAdvisor Rating Mobile -->
           <div class="text-center">
             <div class="flex items-center justify-center space-x-1 mb-1">
-              <img src="./public/assets/images/icons/tripadvisor.svg" alt="TripAdvisor" class="w-full h-8">
+              <img src="<?php echo $header_assets['tripadvisor']; ?>" alt="TripAdvisor" class="w-full h-8">
             </div>
             <div class="flex items-center justify-center space-x-1">
               <span class="text-green-600 text-sm">
@@ -168,15 +172,15 @@ $nav_items = [
         <div class="space-y-2 text-sm">
           <div class="flex items-center space-x-3">
             <i class="fas fa-phone text-blue-600"></i>
-            <span class="text-black">+91 98765 43210</span>
+            <a href="tel:<?= htmlspecialchars($info['phone']); ?>" class="text-black">
+              <?= htmlspecialchars($info['phone']); ?>
+            </a>
           </div>
           <div class="flex items-center space-x-3">
             <i class="fas fa-envelope text-blue-600"></i>
-            <span class="text-black">info@ftitravel.com</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <i class="fas fa-map-marker-alt text-blue-600"></i>
-            <span class="text-black">Delhi, India</span>
+            <a href="tel:<?= htmlspecialchars($info['email']); ?>" class="text-black">
+              <?= htmlspecialchars($info['email']); ?>
+            </a>
           </div>
         </div>
       </div>

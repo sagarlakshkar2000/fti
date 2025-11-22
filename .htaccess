@@ -1,12 +1,12 @@
-# Enable Rewrite Engine
 RewriteEngine On
 
-# Remove .php from URLs
+# Remove .php extension
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^([^/]+)/?$ $1.php [L]
+RewriteRule ^([^/]+)$ $1.php [L]
 
-# Optional: force lowercase URLs (prevent duplicate URLs)
-# RewriteMap lc int:tolower
-# RewriteCond %{REQUEST_URI} [A-Z]
-# RewriteRule (.*) ${lc:$1} [R=301,L]
+# If user opens /blog/ (folder), redirect to blog.php
+RewriteRule ^blog/?$ blog.php [L]
+
+# Blog Detail Routing
+RewriteRule ^blog/([a-zA-Z0-9-]+)/?$ blog.php?slug=$1 [L,QSA]
