@@ -75,6 +75,8 @@ $additional_meta = $additional_meta ?? [];
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css" />
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
   <!-- Tailwind CSS v4 CDN Config -->
   <script>
     tailwind = {

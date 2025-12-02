@@ -1,6 +1,7 @@
 <?php
-$current_page = basename($_SERVER['PHP_SELF']);
-include './utils/info.php';
+$assets = include __DIR__ . '/config/assetsHandler.php';
+$header_assets = $assets['header_assets'];
+$info = $assets['info_urls'];
 
 // Page specific SEO
 $page_title = "Contact Us | Famous Tours India – Book Taxi & Tour Packages Jaipur";
@@ -46,8 +47,8 @@ ob_start();
               </div>
               <div>
                 <h3 class="font-semibold text-gray-900">Call Us</h3>
-                <a href="tel:<?php echo $phone; ?>" class="text-gray-600 hover:text-orange-600 transition duration-300 block mt-1">
-                  <?php echo $phone; ?>
+                <a href="tel:<?php echo $info['phone'];; ?>" class="text-gray-600 hover:text-orange-600 transition duration-300 block mt-1">
+                  <?php echo $info['phone'];; ?>
                 </a>
                 <p class="text-sm text-gray-500 mt-1">24/7 Customer Support</p>
               </div>
@@ -60,8 +61,8 @@ ob_start();
               </div>
               <div>
                 <h3 class="font-semibold text-gray-900">Email Us</h3>
-                <a href="mailto:<?php echo $email; ?>" class="text-gray-600 hover:text-orange-600 transition duration-300 block mt-1">
-                  <?php echo $email; ?>
+                <a href="mailto:<?php echo $info['email'];; ?>" class="text-gray-600 hover:text-orange-600 transition duration-300 block mt-1">
+                  <?php echo $info['email'];; ?>
                 </a>
                 <p class="text-sm text-gray-500 mt-1">We'll respond quickly</p>
               </div>
@@ -96,16 +97,16 @@ ob_start();
           <div class="mt-8 pt-6 border-t border-gray-200">
             <h3 class="font-semibold text-gray-900 mb-4">Follow Us</h3>
             <div class="flex gap-3">
-              <a href="<?php echo $facebook; ?>" target="_blank" class="bg-gray-800 text-white p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
+              <a href="<?php echo $info['facebook'];; ?>" target="_blank" class="bg-gray-800 text-white p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
                 <i class="fab fa-facebook-f text-white"></i>
               </a>
-              <a href="<?php echo $instagram; ?>" target="_blank" class="bg-gray-800 text-white p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
+              <a href="<?php echo $info['instagram'];; ?>" target="_blank" class="bg-gray-800 text-white p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
                 <i class="fab fa-instagram text-white"></i>
               </a>
-              <a href="<?php echo $linkedin; ?>" target="_blank" class="bg-gray-800 text-white p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
+              <a href="<?php echo $info['linkedin'];; ?>" target="_blank" class="bg-gray-800 text-white p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
                 <i class="fab fa-linkedin-in text-white"></i>
               </a>
-              <a href="<?php echo $x; ?>" target="_blank" class="bg-gray-800 text-white p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
+              <a href="<?php echo $info['x'];; ?>" target="_blank" class="bg-gray-800 text-white p-3 rounded-lg transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-orange-500">
                 <i class="fab fa-twitter text-white"></i>
               </a>
             </div>
@@ -187,9 +188,9 @@ ob_start();
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Need Immediate Assistance?</h2>
     <p class="text-orange-100 text-lg mb-6">Call us now for instant taxi booking and support</p>
-    <a href="tel:<?php echo $phone; ?>"
+    <a href="tel:<?php echo $info['phone'];; ?>"
       class="bg-white text-orange-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center gap-3 text-lg">
-      <i class="fas fa-phone"></i> Call <?php echo $phone; ?>
+      <i class="fas fa-phone"></i> Call <?php echo $info['phone'];; ?>
     </a>
   </div>
 </section>
@@ -318,7 +319,7 @@ ob_start();
           <i class="fas fa-question-circle text-orange-500"></i>
           How do I book a taxi?
         </h3>
-        <p class="text-gray-600">You can book through our website, call us directly at <?php echo $phone; ?>, or message us on WhatsApp for instant booking.</p>
+        <p class="text-gray-600">You can book through our website, call us directly at <?php echo $info['phone'];; ?>, or message us on WhatsApp for instant booking.</p>
       </div>
 
       <!-- FAQ 2 -->

@@ -1,7 +1,4 @@
 <?php
-$current_page = basename($_SERVER['PHP_SELF']);
-include './utils/info.php';
-
 // Page specific SEO
 $page_title = "About Us | Famous Tours India – Best Travel Agency in Jaipur & Rajasthan";
 $page_description = "Learn about Famous Tours India (FTI Travel), a leading travel agency in Jaipur offering reliable taxi services, customized Rajasthan tour packages, and city sightseeing with expert support.";
