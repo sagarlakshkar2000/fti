@@ -23,6 +23,13 @@ ob_start();
 <?php include './components/rajasthan-tours.php'; ?>
 
 <?php
+// Include post modal (shows promotional posts)
+if (file_exists('./components/post-modal.php')) {
+  include './components/post-modal.php';
+}
+?>
+
+<?php
 $page_content = ob_get_clean();
 include './layouts/main.php';
 ?>
