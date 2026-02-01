@@ -3,23 +3,9 @@
 @section('content')
 <div class="space-y-12">
     <!-- Hero Section -->
-    <section class="text-center py-16 px-6 bg-white dark:bg-zinc-900 rounded-lg shadow-sm border border-[#e3e3e0] dark:border-[#3E3E3A]">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-[#1b1b18] dark:text-[#EDEDEC] tracking-tight">
-            Welcome to Our <span class="text-[#FF2D20]">Awesome Platform</span>
-        </h1>
-        <p class="text-lg text-[#706f6c] dark:text-[#A1A09A] mb-8 max-w-2xl mx-auto">
-            Build faster, scale better, and delight your users with our cutting-edge solutions.
-            Start your journey today and experience the difference.
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="{{ url('/register') }}" class="px-8 py-3 bg-[#FF2D20] text-white rounded-md font-semibold hover:bg-[#e0261b] transition">
-                Get Started
-            </a>
-            <a href="{{ url('/about') }}" class="px-8 py-3 bg-transparent border border-[#e3e3e0] dark:border-[#3E3E3A] text-[#1b1b18] dark:text-[#EDEDEC] rounded-md font-semibold hover:bg-gray-50 dark:hover:bg-zinc-800 transition">
-                Learn More
-            </a>
-        </div>
-    </section>
+    <!-- Hero Section -->
+    <x-hero-slider />
+
 
     <!-- Features Grid -->
     <section class="grid md:grid-cols-3 gap-6">
