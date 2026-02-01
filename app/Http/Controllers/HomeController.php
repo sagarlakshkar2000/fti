@@ -44,7 +44,29 @@ class HomeController extends Controller
             'fa-clock'         // Hourly Rentals
         ];
 
-        return view('index', compact('taxiServices', 'serviceIcons'));
+        // Static data for Latest Offer Modal
+        $latestOffers = [
+            [
+                'active' => true,
+                'image' => '/assets/uploadedPosts/post_1.png',
+                'link' => route('contact'),
+                'title' => 'Limited Time Discount on Rajasthan Tours'
+            ],
+            [
+                'active' => true,
+                'image' => '/assets/uploadedPosts/post_2.png',
+                'link' => route('contact'),
+                'title' => 'Limited Time Discount on Rajasthan Tours'
+            ],
+            [
+                'active' => true,
+                'image' => '/assets/uploadedPosts/post_1.png',
+                'link' => route('contact'),
+                'title' => 'Limited Time Discount on Rajasthan Tours'
+            ]
+        ];
+
+        return view('index', compact('taxiServices', 'serviceIcons', 'latestOffers'));
     }
 
     public function about(Request $request)

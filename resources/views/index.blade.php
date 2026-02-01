@@ -7,5 +7,6 @@
     <x-fleet />
     <x-two-side-section />
     <x-tour-packages />
+    <x-latest-offers :latestOffers="$latestOffers" />
 </div>
 @endsection
