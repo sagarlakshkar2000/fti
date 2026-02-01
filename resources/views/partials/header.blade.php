@@ -2,7 +2,7 @@
 $header_assets = [
 'google' => 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg', // Placeholder
 'tripadvisor' => 'https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg', // Placeholder
-'logo' => 'https://via.placeholder.com/150/FF2D20/FFFFFF?text=FTI', // Placeholder
+'logo' => '/assets/images/logo.jpg', // Placeholder
 ];
 
 $info = [
