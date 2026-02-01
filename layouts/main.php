@@ -59,57 +59,42 @@ $additional_meta = $additional_meta ?? [];
   <?php endforeach; ?>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link rel="icon" type="image/png" href="<?= defined('BASE_URL') ? BASE_URL : '' ?>/public/assets/images/favicon.png" />
 
-  <!-- FontAwesome 7 -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/fontawesome.min.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/solid.min.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/regular.min.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css" />
+  <!-- FontAwesome 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
 
-  <!-- Tailwind CSS v4 CDN Config -->
+  <!-- Tailwind CSS v3.4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind = {
-      config: {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: '#d44712',
-              secondary: '#fa7d1a',
-              dark: '#1a1a2e',
-              light: '#f8f9fa',
-              accent: '#8338ec',
-              yellow: 'hsl(45, 100%, 51%)',
-            },
-            fontFamily: {
-              main: ['Poppins', 'sans-serif'],
-            },
-            borderRadius: {
-              DEFAULT: '8px',
-            },
-            backgroundImage: {
-              gradient: 'linear-gradient(135deg, hsl(12,80%,23%), hsl(24,100%,41%))',
-              gradient1: 'linear-gradient(135deg, hsl(12,80%,23%), hsl(39,97%,87%))',
-            },
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#d44712',
+            secondary: '#fa7d1a',
+            dark: '#1a1a2e',
+            light: '#f8f9fa',
+            accent: '#8338ec',
+            yellow: 'hsl(45, 100%, 51%)',
+          },
+          fontFamily: {
+            main: ['Poppins', 'sans-serif'],
+          },
+          borderRadius: {
+            DEFAULT: '8px',
+          },
+          backgroundImage: {
+            gradient: 'linear-gradient(135deg, hsl(12,80%,23%), hsl(24,100%,41%))',
+            gradient1: 'linear-gradient(135deg, hsl(12,80%,23%), hsl(39,97%,87%))',
           },
         },
       },
-    };
+    }
   </script>
-
-  <!-- Tailwind via CDN -->
-  <script defer src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <!-- Custom Stylesheet -->
   <?php include __DIR__ . '/../includes/stylesheet.php'; ?>

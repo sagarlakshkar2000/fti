@@ -1,4 +1,7 @@
 <?php
+// Include configuration first
+require_once './config/config.php';
+
 // Page specific SEO
 $page_title = "FTI Travel Jaipur | Best Rajasthan Taxi & Tour Packages - Famous Tours India";
 $page_description = "Famous Tours India offers trusted taxi and travel packages in Jaipur & Rajasthan—airport pickup, sightseeing tours, Golden Triangle, and budget-friendly car rentals.";
@@ -25,7 +28,7 @@ ob_start();
 <?php
 // Include post modal (shows promotional posts)
 if (file_exists('./components/post-modal.php')) {
-  include './components/post-modal.php';
+    include './components/post-modal.php';
 }
 ?>
 
