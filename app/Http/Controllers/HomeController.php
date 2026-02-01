@@ -8,7 +8,43 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        return view('index');
+        $taxiServices = [
+            [
+                "title" => "Airport Transfers",
+                "description" => "On-time pickups and drops with real-time flight tracking and meet & greet service."
+            ],
+            [
+                "title" => "City Rides",
+                "description" => "Affordable point-to-point rides with professional drivers who know the city well."
+            ],
+            [
+                "title" => "Outstation Trips",
+                "description" => "Comfortable intercity travel with flexible packages and multiple vehicle options."
+            ],
+            [
+                "title" => "Corporate Rides",
+                "description" => "Dedicated business travel solutions with monthly billing and priority support."
+            ],
+            [
+                "title" => "Wedding Car Rentals",
+                "description" => "Luxury vehicles with professional chauffeurs for your special occasions."
+            ],
+            [
+                "title" => "Hourly Rentals",
+                "description" => "Flexible hourly packages for shopping, meetings or multiple stops in the city."
+            ]
+        ];
+
+        $serviceIcons = [
+            'fa-plane',        // Airport Transfers
+            'fa-city',         // City Rides
+            'fa-route',        // Outstation Trips
+            'fa-briefcase',    // Corporate Rides
+            'fa-heart',        // Wedding Car Rentals
+            'fa-clock'         // Hourly Rentals
+        ];
+
+        return view('index', compact('taxiServices', 'serviceIcons'));
     }
 
     public function about(Request $request)

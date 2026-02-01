@@ -3,7 +3,7 @@
 @section('content')
 <div class="space-y-12">
     <x-hero-slider />
-    <x-taxi-service />
+    <x-taxi-service :taxiServices="$taxiServices" :serviceIcons="$serviceIcons" />
     <x-fleet />
     <x-two-side-section />
     <x-tour-packages />

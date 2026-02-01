@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
 @php
-$phone = '+91 98290 55725';
-$page_title = "About Us | Famous Tours India – Best Travel Agency in Jaipur & Rajasthan";
-$page_description = "Learn about Famous Tours India (FTI Travel), a leading travel agency in Jaipur offering reliable taxi services, customized Rajasthan tour packages, and city sightseeing with expert support.";
-$page_keywords = "about Famous Tours India, travel agency Jaipur, Rajasthan tour experts, Jaipur city tours, best taxi service Jaipur, travel company India, Rajasthan travel agency, FTI Travel Jaipur";
-$page_canonical = "https://www.famoustoursindia.com/about.php";
+$info = config('contact');
 @endphp
 
 @section('content')
@@ -45,7 +41,7 @@ $page_canonical = "https://www.famoustoursindia.com/about.php";
                         class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2">
                         <i class="fas fa-phone"></i> Contact Us
                     </a>
-                    <a href="tel:<?php echo $phone; ?>"
+                    <a href="tel:{{ $info['phone'] }}"
                         class="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
                         <i class="fas fa-car"></i> Book Now
                     </a>
@@ -290,7 +286,7 @@ $page_canonical = "https://www.famoustoursindia.com/about.php";
                     </p>
                 </div>
                 <div class="flex-shrink-0">
-                    <a href="tel:<?php echo $phone; ?>"
+                    <a href="tel:{{ $info['phone'] }}"
                         class="bg-white text-orange-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2 text-lg">
                         <i class="fas fa-phone"></i>
                         Enquire Now
@@ -391,7 +387,7 @@ $page_canonical = "https://www.famoustoursindia.com/about.php";
                     <i class="fas fa-question-circle text-orange-500"></i>
                     How do I book a taxi?
                 </h3>
-                <p class="text-gray-600">You can book through our website, call us directly at <?php echo $phone; ?>, or message us on WhatsApp for instant booking.</p>
+                <p class="text-gray-600">You can book through our website, call us directly at {{ $info['phone'] }}, or message us on WhatsApp for instant booking.</p>
             </div>
 
             <!-- FAQ 2 -->

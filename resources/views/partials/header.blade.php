@@ -5,10 +5,7 @@ $header_assets = [
 'logo' => '/assets/images/logo.jpg', // Placeholder
 ];
 
-$info = [
-'phone' => '+91 123 456 7890',
-'email' => 'info@famoustoursindia.com',
-];
+$info = config('contact');
 
 $nav_items = [
 'Home' => url('/'),

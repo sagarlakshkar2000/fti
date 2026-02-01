@@ -1,24 +1,6 @@
-<?php
-$header_assets = [
-    'google' => 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg', // Placeholder
-    'tripadvisor' => 'https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg', // Placeholder
-    'logo' => '/assets/images/logo.jpg', // Placeholder
-];
-$info = [
-    'phone' => '+91 98765 43210',
-    'email' => 'famoustoursindia@gmail.com',
-    'facebook' => '#',
-    'instagram' => '#',
-    'linkedin' => '#',
-    'whatsapp' => '#',
-];
-$nav_items = [
-    'Home' => url('/'),
-    'About' => url('/about'),
-    'Contact' => url('/contact'),
-    'Blog' => url('/blog'),
-];
-?>
+@php
+$info = config('contact');
+@endphp
 
 <footer class="bg-gray-900 text-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -28,7 +10,7 @@ $nav_items = [
             <div class="lg:col-span-2">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="rounded-lg">
-                        <img src="<?php echo $header_assets['logo'] ?>" alt="FTI Travel" class="w-full h-20 md:h-15 rounded-lg">
+                        <img src="{{ $info['logo'] }}" alt="FTI Travel" class="w-full h-20 md:h-15 rounded-lg">
                     </div>
                     <h3 class="text-2xl font-bold text-white">Famous Tours India</h3>
                 </div>
@@ -44,29 +26,14 @@ $nav_items = [
             <div>
                 <h4 class="text-lg font-semibold text-white mb-4 border-b border-orange-500 pb-2">Quick Links</h4>
                 <ul class="space-y-3">
-                    <li>
-                        <a href="<?php echo $nav_items['Home'] ?>" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
-                            <i class="fas fa-home text-orange-500 text-sm"></i>
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $nav_items['About'] ?>" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
-                            <i class="fas fa-info-circle text-orange-500 text-sm"></i>
-                            About
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $nav_items['Contact'] ?>" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
-                            <i class="fas fa-phone text-orange-500 text-sm"></i>
-                            Contact Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $nav_items['Blog'] ?>" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
-                            Blog
-                        </a>
-                    </li>
+                    <?php foreach ($info['navbarRoutes'] as $key => $value) { ?>
+                        <li>
+                            <a href="{{$value['route']}}" class="text-gray-300 hover:text-orange-400 transition duration-300 flex items-center gap-2">
+                                <i class="{{$value['icon']}} text-orange-500 text-sm"></i>
+                                {{$value['name']}}
+                            </a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
 
