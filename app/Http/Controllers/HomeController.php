@@ -44,27 +44,11 @@ class HomeController extends Controller
             'fa-clock'         // Hourly Rentals
         ];
 
-        // Static data for Latest Offer Modal
-        $latestOffers = [
-            [
-                'active' => true,
-                'image' => '/assets/uploadedPosts/post_1.png',
-                'link' => route('contact'),
-                'title' => 'Limited Time Discount on Rajasthan Tours'
-            ],
-            [
-                'active' => true,
-                'image' => '/assets/uploadedPosts/post_2.png',
-                'link' => route('contact'),
-                'title' => 'Limited Time Discount on Rajasthan Tours'
-            ],
-            [
-                'active' => true,
-                'image' => '/assets/uploadedPosts/post_1.png',
-                'link' => route('contact'),
-                'title' => 'Limited Time Discount on Rajasthan Tours'
-            ]
-        ];
+        // Fetch Latest Active Offers from Database
+        $latestOffers = \App\Models\Offer::where('is_active', true)
+            ->latest()
+            ->take(5) // Limit to 5 or as needed
+            ->get();
 
         return view('index', compact('taxiServices', 'serviceIcons', 'latestOffers'));
     }

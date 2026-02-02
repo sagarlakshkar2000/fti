@@ -14,26 +14,26 @@ return [
     'navbarRoutes' => [
         'Home' => [
             'name' => 'Home',
-            'route' => url('/'),
+            'route' => '/',
             'icon' => 'fas fa-home',
             'active' => 'active',
 
         ],
         'About' => [
             'name' => 'About',
-            'route' => url('/about'),
+            'route' => '/about',
             'icon' => 'fas fa-info-circle',
             'active' => 'active',
         ],
         'Contact' => [
             'name' => 'Contact',
-            'route' => url('/contact'),
+            'route' => '/contact',
             'icon' => 'fas fa-phone',
             'active' => 'active',
         ],
         'Blog' => [
             'name' => 'Blog',
-            'route' => url('/blog'),
+            'route' => '/blog',
             'icon' => 'fas fa-blog',
             'active' => 'active',
         ],
