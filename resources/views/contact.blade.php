@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', $title)
+@section('meta_description', $meta_description)
+
 @php
 $info = config('contact');
 @endphp

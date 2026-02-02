@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', $title)
+@section('meta_description', $meta_description)
+
 @section('content')
 <div class="space-y-12">
     <x-hero-slider />

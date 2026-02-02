@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', $title)
+@section('meta_description', $meta_description)
+
 @section('content')
 <div class="max-w-4xl mx-auto">
     <!-- Article Header -->

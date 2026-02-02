@@ -50,26 +50,39 @@ class HomeController extends Controller
             ->take(5) // Limit to 5 or as needed
             ->get();
 
-        return view('index', compact('taxiServices', 'serviceIcons', 'latestOffers'));
+        // SEO Data
+        $title = "Best Taxi Service in Udaipur & Rajasthan Tour Packages - Famous Tours India";
+        $meta_description = "Famous Tours India offers reliable taxi services in Udaipur, airport transfers, and customized Rajasthan tour packages. Book tailored outstation trips and luxury car rentals.";
+
+        return view('index', compact('taxiServices', 'serviceIcons', 'latestOffers', 'title', 'meta_description'));
     }
 
     public function about(Request $request)
     {
-        return view('about');
+        $title = "About Us - Famous Tours India | Trusted Travel Partner";
+        $meta_description = "Learn more about Famous Tours India, our mission, vision, and the team dedicated to providing the best travel experiences in Rajasthan.";
+        return view('about', compact('title', 'meta_description'));
     }
 
     public function contact(Request $request)
     {
-        return view('contact');
+        $title = "Contact Us - Famous Tours India | Book Your Ride Today";
+        $meta_description = "Get in touch with Famous Tours India for bookings, inquiries, or support. We are here to help you plan your perfect Rajasthan trip.";
+        return view('contact', compact('title', 'meta_description'));
     }
 
     public function blog(Request $request)
     {
-        return view('blog');
+        $title = "Travel Blog - Famous Tours India | Tips & Guides";
+        $meta_description = "Read our latest travel blogs, tips, and guides for exploring Udaipur and Rajasthan. Stay updated with Famous Tours India.";
+        return view('blog', compact('title', 'meta_description'));
     }
 
     public function blogDetail(Request $request)
     {
-        return view('blog-detail');
+        // Ideally this would come from a database blog post
+        $title = "Blog Detail - Famous Tours India";
+        $meta_description = "Detailed view of our travel blog post.";
+        return view('blog-detail', compact('title', 'meta_description'));
     }
 }
