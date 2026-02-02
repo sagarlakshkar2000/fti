@@ -1,16 +1,12 @@
-# Turn off the rewrite engine first to clear any loops
 RewriteEngine On
 
-# 1. Base path - important for subfolder routing
-RewriteBase /
+# 1. If the request is already for the /public folder, stop here
+RewriteCond %{REQUEST_URI} ^/public/
+RewriteRule ^ - [L]
 
-# 2. Redirect root to /public if it's not already there
-# This checks if the request is NOT already for the public folder
-RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule ^(.*)$ public/$1 [L,QSA]
+# 2. Redirect everything else to the /public folder
+# This keeps your URL clean (e.g., example.com/login instead of example.com/public/login)
+RewriteRule ^(.*)$ public/$1 [L]
 
-# 3. Inside the public folder, handle index.php routing
-# If the file doesn't exist in /public, send it to /public/index.php
-RewriteCond %{DOCUMENT_ROOT}/public/$1 !-f
-RewriteCond %{DOCUMENT_ROOT}/public/$1 !-d
-RewriteRule ^public/(.*)$ public/index.php [L,QSA]
+# 3. (Optional) If your public folder has its own index.php,
+# the server will now automatically find it.
