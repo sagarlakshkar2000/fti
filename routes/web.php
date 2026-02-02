@@ -36,3 +36,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('offers', AdminController::class)->except(['index', 'show']);
     });
 });
+
+Route::fallback(function () {
+    return redirect('/');
+});
