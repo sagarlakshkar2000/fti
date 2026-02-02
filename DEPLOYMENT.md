@@ -26,21 +26,17 @@ Follow these steps to deploy your Laravel application to Hostinger.
     *   Alternatively, you can run migrations if you have SSH access (see below).
 
 ## 4. Environment Configuration
-1.  Rename `.env.example` to `.env` if you haven't already.
-2.  Edit `.env` file in File Manager:
-    *   `APP_NAME=YourAppName`
-    *   `APP_ENV=production`
-    *   `APP_DEBUG=false`
-    *   `APP_URL=https://your-domain.com`
-    *   **Database Config**:
-        ```dotenv
-        DB_CONNECTION=mysql
-        DB_HOST=127.0.0.1
-        DB_PORT=3306
-        DB_DATABASE=your_database_name
-        DB_USERNAME=your_database_username
-        DB_PASSWORD=your_database_password
-        ```
+1.  **Use the Provided Production Config**:
+    *   I have created a file named `.env.production` in your project root.
+    *   Upload this file to your `public_html` folder.
+    *   **Rename it** from `.env.production` to `.env`.
+2.  **Verify Settings**:
+    *   `DB_HOST=127.0.0.1` (Correct for internal server connection)
+    *   `QUEUE_CONNECTION=sync` (Best for shared hosting without supervisor)
+    *   `SESSION_DRIVER=file` / `CACHE_STORE=file` (Prevents errors if database isn't migrated yet)
+3.  **Update Email Credentials**:
+    *   Edit the new `.env` file on the server.
+    *   Fill in `MAIL_USERNAME` and `MAIL_PASSWORD` with your Hostinger email details.
 
 ## 5. Final Steps
 1.  **Generate Key**: If you have SSH access, run `php artisan key:generate`.
