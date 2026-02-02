@@ -1,16 +1,16 @@
-<IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews
-    </IfModule>
+# Turn off the rewrite engine first to clear any loops
+RewriteEngine On
 
-    RewriteEngine On
+# 1. Base path - important for subfolder routing
+RewriteBase /
 
-    RewriteCond %{REQUEST_FILENAME} -d [OR]
-    RewriteCond %{REQUEST_FILENAME} -f
-    RewriteRule ^ ^$1 [N]
+# 2. Redirect root to /public if it's not already there
+# This checks if the request is NOT already for the public folder
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L,QSA]
 
-    RewriteCond %{REQUEST_URI} (\.\w+$) [NC]
-    RewriteRule ^(.*)$ public/$1 [L]
-
-    RewriteRule ^ index.php [L]
-</IfModule>
+# 3. Inside the public folder, handle index.php routing
+# If the file doesn't exist in /public, send it to /public/index.php
+RewriteCond %{DOCUMENT_ROOT}/public/$1 !-f
+RewriteCond %{DOCUMENT_ROOT}/public/$1 !-d
+RewriteRule ^public/(.*)$ public/index.php [L,QSA]
