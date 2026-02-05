@@ -234,7 +234,7 @@
                                 <div class="carousel-slide absolute inset-0 transition-opacity duration-500 {{ $index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0' }}" data-slide="{{ $index }}">
                                     @if($offer->image)
                                     <img src="{{ asset('storage/' . $offer->image) }}"
-                                        alt="{{ $offer->name }}"
+                                        alt="{{ $offer->title }}"
                                         class="w-full h-full object-cover">
                                     @else
                                     <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-red-100 to-orange-100">
@@ -245,7 +245,7 @@
                                     @endif
                                     <!-- Overlay with offer name -->
                                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                                        <h4 class="text-white font-bold text-lg md:text-xl">{{ $offer->name }}</h4>
+                                        <h4 class="text-white font-bold text-lg md:text-xl">{{ $offer->title }}</h4>
                                         <p class="text-gray-200 text-sm line-clamp-2">{{ $offer->description }}</p>
                                     </div>
                                 </div>
