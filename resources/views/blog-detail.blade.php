@@ -4,72 +4,173 @@
 @section('meta_description', $meta_description)
 
 @section('content')
-<div class="max-w-4xl mx-auto">
-    <!-- Article Header -->
-    <div class="mb-8">
-        <div class="flex items-center gap-2 text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
-            <span class="px-3 py-1 bg-[#FF2D20]/10 text-[#FF2D20] rounded-full font-medium">Technology</span>
-            <span>&bull;</span>
-            <span>Oct 12, 2023</span>
-            <span>&bull;</span>
-            <span>5 min read</span>
-        </div>
-        <h1 class="text-3xl md:text-5xl font-bold text-[#1b1b18] dark:text-[#EDEDEC] mb-6 leading-tight">
-            The Future of Web Development: Trends to Watch
-        </h1>
-        <div class="flex items-center gap-4 border-b border-[#e3e3e0] dark:border-[#3E3E3A] pb-8">
-            <div class="w-12 h-12 bg-gray-200 rounded-full"></div>
-            <div>
-                <h4 class="font-bold text-[#1b1b18] dark:text-[#EDEDEC]">Alex Morgan</h4>
-                <p class="text-sm text-[#706f6c] dark:text-[#A1A09A]">Editor in Chief</p>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+        <!-- Main Content Column -->
+        <div class="lg:col-span-2">
+            <!-- Article Header -->
+            <div class="mb-8">
+                <div class="flex items-center gap-2 text-sm text-[#706f6c] dark:text-[#A1A09A] mb-4">
+                    <span class="px-3 py-1 bg-[#FF2D20]/10 text-[#FF2D20] rounded-full font-medium">{{ $blog->category }}</span>
+                    <span>&bull;</span>
+                    <span>{{ $blog->created_at->format('M d, Y') }}</span>
+                    <span>&bull;</span>
+                    <span>{{ $blog->sections['other_data']['reading_time'] ?? '5' }} min read</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold text-[#1b1b18] dark:text-[#EDEDEC] mb-6 leading-tight">
+                    {{ $blog->title }}
+                </h1>
+
+                <!-- Main Image -->
+                @if($blog->main_image)
+                <div class="w-full h-80 md:h-[500px] bg-gray-200 rounded-lg mb-10 overflow-hidden">
+                    <img src="{{ Str::startsWith($blog->main_image, 'http') ? $blog->main_image : asset('storage/' . $blog->main_image) }}" alt="{{ $blog->title }}" class="w-full h-full object-cover">
+                </div>
+                @endif
+            </div>
+
+            <!-- Article Body -->
+            <article class="prose prose-lg dark:prose-invert max-w-none text-[#1b1b18] dark:text-[#EDEDEC]">
+
+                <!-- Intro Section -->
+                @if(isset($blog->sections['intro']))
+                <div class="mb-8">
+                    @if(!empty($blog->sections['intro']['heading']))
+                    <h3>{{ $blog->sections['intro']['heading'] }}</h3>
+                    @endif
+                    <div class="text-xl leading-relaxed text-[#706f6c] dark:text-[#A1A09A]">
+                        {!! $blog->sections['intro']['content'] !!}
+                    </div>
+                </div>
+                @endif
+
+                <!-- Main Sections Loop -->
+                @if(isset($blog->sections['main_sections']))
+                @foreach($blog->sections['main_sections'] as $section)
+                <div class="mb-8">
+                    @if(!empty($section['heading']))
+                    <h2>{{ $section['heading'] }}</h2>
+                    @endif
+                    <div class="mb-4 text-[#706f6c] dark:text-[#A1A09A]">
+                        {!! $section['content'] !!}
+                    </div>
+                    <!-- Section Images -->
+                    @if(!empty($section['images']) && is_array($section['images']))
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                        @foreach($section['images'] as $img)
+                        <img src="{{ Str::startsWith($img, 'http') ? $img : asset('storage/' . $img) }}" class="rounded-lg w-full h-64 object-cover" alt="Section Image">
+                        @endforeach
+                    </div>
+                    @endif
+                </div>
+                @endforeach
+                @endif
+
+                <!-- Highlights -->
+                @if(isset($blog->sections['highlights']))
+                <div class="bg-gray-50 dark:bg-zinc-800 p-6 rounded-lg my-8 border-l-4 border-[#FF2D20]">
+                    @if(!empty($blog->sections['highlights']['heading']))
+                    <h3 class="mt-0 text-[#FF2D20]">{{ $blog->sections['highlights']['heading'] }}</h3>
+                    @endif
+                    <div>{!! $blog->sections['highlights']['content'] !!}</div>
+                </div>
+                @endif
+
+                <!-- FAQ -->
+                @if(isset($blog->sections['faq']))
+                <div class="my-8">
+                    @if(!empty($blog->sections['faq']['heading']))
+                    <h2>{{ $blog->sections['faq']['heading'] }}</h2>
+                    @endif
+                    <div>{!! $blog->sections['faq']['content'] !!}</div>
+                </div>
+                @endif
+
+                <!-- Booking Info & CTA -->
+                @if(isset($blog->sections['booking_info']))
+                <div class="my-8 p-6 bg-[#FF2D20]/5 rounded-xl border border-[#FF2D20]/20">
+                    @if(!empty($blog->sections['booking_info']['heading']))
+                    <h3 class="mt-0 text-[#FF2D20]">{{ $blog->sections['booking_info']['heading'] }}</h3>
+                    @endif
+                    <div>{!! $blog->sections['booking_info']['content'] !!}</div>
+                </div>
+                @endif
+
+                @if(isset($blog->sections['cta']))
+                <div class="my-8 text-center">
+                    @if(!empty($blog->sections['cta']['heading']))
+                    <h2>{{ $blog->sections['cta']['heading'] }}</h2>
+                    @endif
+                    <div>{!! $blog->sections['cta']['content'] !!}</div>
+                    <a href="{{ route('contact') }}" class="inline-block mt-4 px-8 py-3 bg-[#FF2D20] text-white font-bold rounded-full hover:bg-[#e0281b] transition no-underline">
+                        Contact Us Now
+                    </a>
+                </div>
+                @endif
+
+                <!-- Conclusion -->
+                @if(isset($blog->sections['conclusion']))
+                <div class="mt-12 pt-8 border-t border-gray-200 dark:border-zinc-700">
+                    @if(!empty($blog->sections['conclusion']['heading']))
+                    <h3>{{ $blog->sections['conclusion']['heading'] }}</h3>
+                    @endif
+                    <div>{!! $blog->sections['conclusion']['content'] !!}</div>
+                </div>
+                @endif
+
+            </article>
+
+            <!-- Back Link -->
+            <div class="mt-12">
+                <a href="{{ url('/blog') }}" class="text-[#FF2D20] font-medium hover:underline flex items-center gap-2">
+                    &larr; Back to All Posts
+                </a>
             </div>
         </div>
-    </div>
 
-    <!-- Article Image -->
-    <div class="w-full h-80 md:h-[500px] bg-gray-200 rounded-lg mb-10"></div>
+        <!-- Sidebar Column -->
+        <div class="lg:col-span-1">
+            <div class="sticky top-24 space-y-8">
 
-    <!-- Article Content -->
-    <article class="prose prose-lg dark:prose-invert max-w-none text-[#1b1b18] dark:text-[#EDEDEC]">
-        <p class="text-xl leading-relaxed mb-6 text-[#706f6c] dark:text-[#A1A09A]">
-            The web development landscape is constantly evolving, with new tools, frameworks, and methodologies emerging at a rapid pace. As we look ahead, several key trends are poised to shape the future of how we build and interact with the web.
-        </p>
+                <!-- Travel Agency CTA Widget -->
+                <div class="bg-[#1b1b18] text-white p-6 rounded-xl shadow-lg relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold mb-3">Plan Your Dream Trip</h3>
+                        <p class="text-gray-300 mb-6 text-sm">Let FamousToursIndia curate the perfect itinerary for you. Exclusive deals available!</p>
+                        <a href="{{ route('contact') }}" class="block w-full text-center bg-[#FF2D20] hover:bg-[#e0281b] text-white font-bold py-2 rounded transition">
+                            Get a Free Quote
+                        </a>
+                    </div>
+                    <!-- Decorative Circle -->
+                    <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-[#FF2D20]/20 rounded-full blur-2xl"></div>
+                </div>
 
-        <h2 class="text-2xl font-bold mb-4 mt-8">Checking WebAssembly into Maintenance</h2>
-        <p class="mb-4 text-[#706f6c] dark:text-[#A1A09A]">
-            WebAssembly (Wasm) is opening up new possibilities for high-performance applications in the browser. By allowing code written in languages like C++, Rust, and Go to run at near-native speed, Wasm is enabling complex applications like video editors and game engines to run smoothly on the web.
-        </p>
+                <!-- Latest Offers Widget -->
+                @if(isset($latest_offers) && $latest_offers->count() > 0)
+                <div class="bg-white dark:bg-zinc-900 rounded-xl border border-[#e3e3e0] dark:border-[#3E3E3A] p-6">
+                    <h3 class="font-bold text-lg mb-4 pb-2 border-b border-[#e3e3e0] dark:border-[#3E3E3A]">Latest Offers</h3>
+                    <div class="space-y-6">
+                        @foreach($latest_offers as $offer)
+                        <div class="group">
+                            <div class="h-32 bg-gray-200 rounded-lg overflow-hidden mb-3">
+                                @if($offer->image)
+                                <img src="{{ asset('storage/' . $offer->image) }}" alt="{{ $offer->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                @else
+                                <div class="w-full h-full flex items-center justify-center text-gray-400 text-xs">No Image</div>
+                                @endif
+                            </div>
+                            <h4 class="font-bold text-sm mb-1 group-hover:text-[#FF2D20] transition">{{ $offer->name }}</h4>
+                            <p class="text-xs text-[#706f6c] dark:text-[#A1A09A] line-clamp-2">{{ $offer->description }}</p>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
 
-        <h2 class="text-2xl font-bold mb-4 mt-8">The Rise of Server-Side Rendering (SSR)</h2>
-        <p class="mb-4 text-[#706f6c] dark:text-[#A1A09A]">
-            While Single Page Applications (SPAs) have dominated in recent years, there's a growing shift back towards Server-Side Rendering. Frameworks like Next.js and Laravel are making it easier than ever to build hybrid applications that offer the best of both worlds: fast initial load times and dynamic interactivity.
-        </p>
+            </div>
+        </div>
 
-        <h2 class="text-2xl font-bold mb-4 mt-8">AI-Powered Development</h2>
-        <p class="mb-4 text-[#706f6c] dark:text-[#A1A09A]">
-            Artificial Intelligence is becoming an integral part of the developer workflow. From code generation tools to intelligent debugging assistants, AI is helping developers write better code faster. Expect to see even deeper integration of AI into our daily tools.
-        </p>
-
-        <blockquote class="border-l-4 border-[#FF2D20] pl-6 italic text-xl my-8 text-[#1b1b18] dark:text-[#EDEDEC]">
-            "The best way to predict the future is to create it."
-        </blockquote>
-
-        <p class="mb-4 text-[#706f6c] dark:text-[#A1A09A]">
-            As technology continues to advance, the most successful developers will be those who remain curious and adaptable. Embracing lifelong learning is no longer optional; it's a necessity in this fast-paced industry.
-        </p>
-    </article>
-
-    <!-- Post Navigation -->
-    <div class="border-t border-[#e3e3e0] dark:border-[#3E3E3A] mt-12 pt-8 flex justify-between">
-        <a href="#" class="text-[#706f6c] dark:text-[#A1A09A] hover:text-[#FF2D20] transition font-medium">
-            &larr; Previous Post
-        </a>
-        <a href="{{ url('/blog') }}" class="text-[#706f6c] dark:text-[#A1A09A] hover:text-[#FF2D20] transition font-medium">
-            Back to Blog
-        </a>
-        <a href="#" class="text-[#706f6c] dark:text-[#A1A09A] hover:text-[#FF2D20] transition font-medium">
-            Next Post &rarr;
-        </a>
     </div>
 </div>
 @endsection

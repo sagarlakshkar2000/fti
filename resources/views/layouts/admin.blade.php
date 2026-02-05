@@ -24,8 +24,8 @@
                         <span class="text-xl font-bold text-gray-800">FTI Admin</span>
                     </div>
                     <div class="ml-6 flex items-center space-x-4">
-                        <a href="{{ route('admin.dashboard') }}" class="px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('admin.dashboard') ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900' }}">Offers</a>
-                        <!-- Add more links here -->
+                        <a href="{{ route('admin.dashboard') }}" class="px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('admin.dashboard') || request()->routeIs('admin.offers.*') ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900' }}">Offers</a>
+                        <a href="{{ route('admin.blogs.index') }}" class="px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('admin.blogs.*') ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900' }}">Blogs</a>
                     </div>
                 </div>
                 <div class="flex items-center">
