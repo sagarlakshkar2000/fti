@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'phone' => '+91 98765 43210',
+    'phone' => '+91 6377134276',
     'email' => 'famoustoursindia@gmail.com',
     'facebook' => '#',
     'instagram' => '#',
