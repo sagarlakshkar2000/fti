@@ -4,7 +4,7 @@
 @section('meta_description', $meta_description)
 
 @section('content')
-<div class="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900">
+<div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
@@ -13,7 +13,7 @@
                 <!-- Article Header -->
                 <div class="mb-10">
                     <!-- Category & Meta Info -->
-                    <div class="flex flex-wrap items-center gap-3 text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6">
+                    <div class="flex flex-wrap items-center gap-3 text-base md:text-lg text-gray-600 mb-6">
                         <span class="px-4 py-2 bg-gradient-to-r from-[#FF2D20] to-[#e0281b] text-white rounded-full font-semibold text-sm md:text-base shadow-lg shadow-red-500/30">
                             {{ $blog->category }}
                         </span>
@@ -29,13 +29,13 @@
                     </div>
 
                     <!-- Title -->
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-8 leading-tight tracking-tight">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-8 leading-tight tracking-tight">
                         {{ $blog->title }}
                     </h1>
 
                     <!-- Main Image -->
                     @if($blog->main_image)
-                    <div class="relative w-full aspect-video md:aspect-[21/9] bg-gray-200 dark:bg-zinc-800 rounded-2xl overflow-hidden shadow-2xl mb-12 group">
+                    <div class="relative w-full aspect-video md:aspect-[21/9] bg-gray-200 rounded-2xl overflow-hidden shadow-2xl mb-12 group">
                         <img src="{{ Str::startsWith($blog->main_image, 'http') ? $blog->main_image : asset('storage/' . $blog->main_image) }}"
                             alt="{{ $blog->title }}"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
@@ -45,18 +45,18 @@
                 </div>
 
                 <!-- Article Body -->
-                <article class="prose prose-lg md:prose-xl dark:prose-invert max-w-none">
+                <article class="prose prose-lg md:prose-xl max-w-none">
 
                     <!-- Intro Section -->
                     @if(isset($blog->sections['intro']))
-                    <div class="mb-12 bg-white dark:bg-zinc-800/50 rounded-2xl p-6 md:p-10 shadow-lg border border-gray-100 dark:border-zinc-700">
+                    <div class="mb-12 bg-white rounded-2xl p-6 md:p-10 shadow-lg border border-gray-200">
                         @if(!empty($blog->sections['intro']['heading']))
-                        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                             {{ $blog->sections['intro']['heading'] }}
                         </h2>
                         @endif
                         @if(!empty($blog->sections['intro']['content']))
-                        <div class="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 first-letter:text-5xl first-letter:font-bold first-letter:text-[#FF2D20] first-letter:mr-2 first-letter:float-left">
+                        <div class="text-lg md:text-xl leading-relaxed text-gray-700 first-letter:text-5xl first-letter:font-bold first-letter:text-[#FF2D20] first-letter:mr-2 first-letter:float-left">
                             {!! $blog->sections['intro']['content'] !!}
                         </div>
                         @endif
@@ -68,12 +68,12 @@
                     @foreach($blog->sections['main_sections'] as $index => $section)
                     <div class="mb-12 scroll-mt-24" id="section-{{ $index }}">
                         @if(!empty($section['heading']))
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 pb-4 border-b-4 border-[#FF2D20]/30">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 pb-4 border-b-4 border-[#FF2D20]/30">
                             {{ $section['heading'] }}
                         </h2>
                         @endif
                         @if(!empty($section['content']))
-                        <div class="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-8 space-y-4">
+                        <div class="text-lg md:text-xl leading-relaxed text-gray-700 mb-8 space-y-4">
                             {!! $section['content'] !!}
                         </div>
                         @endif
@@ -97,7 +97,7 @@
 
                     <!-- Highlights -->
                     @if(isset($blog->sections['highlights']))
-                    <div class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-zinc-800 dark:to-zinc-900 p-8 md:p-10 rounded-2xl my-12 border-l-8 border-[#FF2D20] shadow-xl">
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 p-8 md:p-10 rounded-2xl my-12 border-l-8 border-[#FF2D20] shadow-xl">
                         @if(!empty($blog->sections['highlights']['heading']))
                         <h3 class="text-2xl md:text-3xl font-bold text-[#FF2D20] mb-6 flex items-center gap-3">
                             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -107,7 +107,7 @@
                         </h3>
                         @endif
                         @if(!empty($blog->sections['highlights']['content']))
-                        <div class="text-lg md:text-xl text-gray-800 dark:text-gray-200 [&>ul]:list-none [&>ul>li]:pl-6 [&>ul>li]:relative [&>ul>li]:mb-3 [&>ul>li::before]:content-['✓'] [&>ul>li::before]:absolute [&>ul>li::before]:left-0 [&>ul>li::before]:text-[#FF2D20] [&>ul>li::before]:font-bold [&>ul>li::before]:text-2xl">
+                        <div class="text-lg md:text-xl text-gray-800 [&>ul]:list-none [&>ul>li]:pl-6 [&>ul>li]:relative [&>ul>li]:mb-3 [&>ul>li::before]:content-['✓'] [&>ul>li::before]:absolute [&>ul>li::before]:left-0 [&>ul>li::before]:text-[#FF2D20] [&>ul>li::before]:font-bold [&>ul>li::before]:text-2xl">
                             {!! $blog->sections['highlights']['content'] !!}
                         </div>
                         @endif
@@ -116,9 +116,9 @@
 
                     <!-- FAQ -->
                     @if(isset($blog->sections['faq']))
-                    <div class="my-12 bg-white dark:bg-zinc-800/50 rounded-2xl p-8 md:p-10 shadow-lg border border-gray-100 dark:border-zinc-700">
+                    <div class="my-12 bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-gray-200">
                         @if(!empty($blog->sections['faq']['heading']))
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                             <svg class="w-9 h-9 text-[#FF2D20]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
@@ -126,7 +126,7 @@
                         </h2>
                         @endif
                         @if(!empty($blog->sections['faq']['content']))
-                        <div class="text-lg md:text-xl text-gray-700 dark:text-gray-300 space-y-6 [&>p>strong]:text-[#FF2D20] [&>p>strong]:text-xl [&>p>strong]:md:text-2xl [&>p>strong]:block [&>p>strong]:mb-2">
+                        <div class="text-lg md:text-xl text-gray-700 space-y-6 [&>p>strong]:text-[#FF2D20] [&>p>strong]:text-xl [&>p>strong]:md:text-2xl [&>p>strong]:block [&>p>strong]:mb-2">
                             {!! $blog->sections['faq']['content'] !!}
                         </div>
                         @endif
@@ -135,14 +135,14 @@
 
                     <!-- Booking Info & CTA -->
                     @if(isset($blog->sections['booking_info']))
-                    <div class="my-12 p-8 md:p-10 bg-gradient-to-br from-[#FF2D20]/10 to-orange-100/50 dark:from-[#FF2D20]/20 dark:to-zinc-800 rounded-2xl border-2 border-[#FF2D20]/30 shadow-xl">
+                    <div class="my-12 p-8 md:p-10 bg-gradient-to-br from-red-50 to-red-100 rounded-2xl border-2 border-[#FF2D20]/30 shadow-xl">
                         @if(!empty($blog->sections['booking_info']['heading']))
                         <h3 class="text-2xl md:text-3xl font-bold text-[#FF2D20] mb-6">
                             {{ $blog->sections['booking_info']['heading'] }}
                         </h3>
                         @endif
                         @if(!empty($blog->sections['booking_info']['content']))
-                        <div class="text-lg md:text-xl text-gray-800 dark:text-gray-200">{!! $blog->sections['booking_info']['content'] !!}</div>
+                        <div class="text-lg md:text-xl text-gray-800">{!! $blog->sections['booking_info']['content'] !!}</div>
                         @endif
                     </div>
                     @endif
@@ -163,14 +163,14 @@
 
                     <!-- Conclusion -->
                     @if(isset($blog->sections['conclusion']))
-                    <div class="mt-16 pt-12 border-t-4 border-gray-200 dark:border-zinc-700">
+                    <div class="mt-16 pt-12 border-t-4 border-gray-200">
                         @if(!empty($blog->sections['conclusion']['heading']))
-                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                             {{ $blog->sections['conclusion']['heading'] }}
                         </h3>
                         @endif
                         @if(!empty($blog->sections['conclusion']['content']))
-                        <div class="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+                        <div class="text-lg md:text-xl leading-relaxed text-gray-700">
                             {!! $blog->sections['conclusion']['content'] !!}
                         </div>
                         @endif
@@ -181,11 +181,11 @@
 
                 <!-- Tags -->
                 @if($blog->tags && count($blog->tags) > 0)
-                <div class="mt-12 pt-8 border-t-2 border-gray-200 dark:border-zinc-700">
-                    <h4 class="text-xl md:text-2xl font-bold text-gray-700 dark:text-gray-300 mb-4">Related Topics:</h4>
+                <div class="mt-12 pt-8 border-t-2 border-gray-200">
+                    <h4 class="text-xl md:text-2xl font-bold text-gray-700 mb-4">Related Topics:</h4>
                     <div class="flex flex-wrap gap-3">
                         @foreach($blog->tags as $tag)
-                        <span class="px-5 py-2.5 bg-gray-100 dark:bg-zinc-800 text-gray-800 dark:text-gray-200 rounded-full text-base md:text-lg font-medium hover:bg-[#FF2D20] hover:text-white transition-colors duration-300 cursor-pointer">
+                        <span class="px-5 py-2.5 bg-gray-100 text-gray-800 rounded-full text-base md:text-lg font-medium hover:bg-[#FF2D20] hover:text-white transition-colors duration-300 cursor-pointer">
                             #{{ $tag }}
                         </span>
                         @endforeach
@@ -209,34 +209,34 @@
                 <div class="sticky top-24 space-y-8">
 
                     <!-- Travel Agency CTA Widget -->
-                    <div class="bg-gradient-to-br from-[#1b1b18] to-zinc-900 text-white p-8 rounded-2xl shadow-2xl relative overflow-hidden">
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8 rounded-2xl shadow-2xl relative overflow-hidden">
                         <div class="relative z-10">
                             <h3 class="text-2xl md:text-3xl font-bold mb-4">Plan Your Dream Trip</h3>
-                            <p class="text-gray-300 mb-8 text-base md:text-lg leading-relaxed">Let FamousToursIndia curate the perfect itinerary for you. Exclusive deals available!</p>
+                            <p class="text-gray-200 mb-8 text-base md:text-lg leading-relaxed">Let FamousToursIndia curate the perfect itinerary for you. Exclusive deals available!</p>
                             <a href="{{ route('contact') }}" class="block w-full text-center bg-gradient-to-r from-[#FF2D20] to-[#e0281b] hover:from-[#e0281b] hover:to-[#FF2D20] text-white font-bold py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg text-base md:text-lg">
                                 Get a Free Quote
                             </a>
                         </div>
                         <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FF2D20]/20 rounded-full blur-3xl"></div>
-                        <div class="absolute -top-10 -left-10 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl"></div>
+                        <div class="absolute -top-10 -left-10 w-40 h-40 bg-red-500/20 rounded-full blur-3xl"></div>
                     </div>
 
                     <!-- Latest Offers Widget -->
                     @if(isset($latest_offers) && $latest_offers->count() > 0)
-                    <div class="bg-white dark:bg-zinc-800 rounded-2xl border-2 border-gray-100 dark:border-zinc-700 p-8 shadow-xl">
-                        <h3 class="font-bold text-2xl md:text-3xl mb-6 pb-4 border-b-2 border-gray-200 dark:border-zinc-700 text-gray-900 dark:text-white">Latest Offers</h3>
+                    <div class="bg-white rounded-2xl border-2 border-gray-200 p-8 shadow-xl">
+                        <h3 class="font-bold text-2xl md:text-3xl mb-6 pb-4 border-b-2 border-gray-200 text-gray-900">Latest Offers</h3>
                         <div class="space-y-6">
                             @foreach($latest_offers as $offer)
                             <div class="group cursor-pointer">
-                                <div class="h-40 bg-gray-200 dark:bg-zinc-700 rounded-xl overflow-hidden mb-4 shadow-md">
+                                <div class="h-40 bg-gray-200 rounded-xl overflow-hidden mb-4 shadow-md">
                                     @if($offer->image)
                                     <img src="{{ asset('storage/' . $offer->image) }}" alt="{{ $offer->name }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                     @else
                                     <div class="w-full h-full flex items-center justify-center text-gray-400 text-base">No Image</div>
                                     @endif
                                 </div>
-                                <h4 class="font-bold text-lg md:text-xl mb-2 group-hover:text-[#FF2D20] transition-colors text-gray-900 dark:text-white">{{ $offer->name }}</h4>
-                                <p class="text-base text-gray-600 dark:text-gray-400 line-clamp-2">{{ $offer->description }}</p>
+                                <h4 class="font-bold text-lg md:text-xl mb-2 group-hover:text-[#FF2D20] transition-colors text-gray-900">{{ $offer->name }}</h4>
+                                <p class="text-base text-gray-600 line-clamp-2">{{ $offer->description }}</p>
                             </div>
                             @endforeach
                         </div>

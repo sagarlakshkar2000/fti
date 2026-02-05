@@ -96,7 +96,7 @@
     </script>
 </head>
 
-<body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] dark:text-[#EDEDEC] font-instrument-sans antialiased flex flex-col min-h-screen">
+<body class="bg-[#FDFDFC] dark:bg-[#FDFDFC] text-[#1b1b18] dark:text-[#1b1b18] font-instrument-sans antialiased flex flex-col min-h-screen">
 
     <div class="flex flex-col min-h-screen items-center justify-center selection:bg-[#FF2D20] selection:text-white">
         <div class="relative w-full">
