@@ -233,7 +233,7 @@
                                 @foreach($latest_offers as $index => $offer)
                                 <div class="carousel-slide absolute inset-0 transition-opacity duration-500 {{ $index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0' }}" data-slide="{{ $index }}">
                                     @if($offer->image)
-                                    <img src="{{ asset('storage/' . $offer->image) }}"
+                                    <img src="{{ asset('storage' . $offer->image) }}"
                                         alt="{{ $offer->title }}"
                                         class="w-full h-full object-cover">
                                     @else
