@@ -47,6 +47,11 @@ class AdminBlogController extends Controller
         return redirect()->route('admin.blogs.index')->with('success', 'Blog deleted successfully.');
     }
 
+    public function preview(Blog $blog)
+    {
+        return view('admin.blogs.preview', compact('blog'));
+    }
+
     protected function validateAndProcess(Request $request, ?Blog $blog = null)
     {
         $rules = [
@@ -81,6 +86,9 @@ class AdminBlogController extends Controller
             $validated['main_image'] = $path;
         } elseif ($blog && $blog->main_image) {
             // Keep existing image if not replacing (implicit)
+        } else {
+            // Ensure main_image is set to null for new blogs without image
+            $validated['main_image'] = null;
         }
 
         // Handle Sections Images
@@ -150,40 +158,67 @@ class AdminBlogController extends Controller
         $title = $request->input('title');
         $category = $request->input('category');
 
-        // Handle model selection, default to gemini-1.5-flash
-        $modelName = $request->input('model') ?: 'gemini-1.5-flash';
+        // Handle model selection, default to gemini-2.5-flash
+        $modelName = $request->input('model') ?: 'gemini-2.5-flash';
         // Clean up model name if it comes as "models/gemini-..." which listModels returns
         $modelName = str_replace('models/', '', $modelName);
 
-        $prompt = "Generate a structured JSON for a travel blog post.
-        Title: '$title'.
-        Category: '$category'.
+        $prompt = "You are a professional travel blog writer. Generate a complete, structured JSON for a travel blog post.
 
-        The JSON must strictly follow this structure:
-        {
-            \"sections\": {
-                \"intro\": { \"heading\": \"...\", \"content\": \"... (HTML allowed, use <p>)\" },
-                \"main_sections\": [
-                    { \"heading\": \"...\", \"content\": \"...\", \"images\": [\"https://picsum.photos/800/600?random=1\"] }
-                ],
-                \"highlights\": { \"heading\": \"...\", \"content\": \"...\" },
-                \"faq\": { \"heading\": \"...\", \"content\": \"...\" },
-                \"booking_info\": { \"heading\": \"...\", \"content\": \"...\" },
-                \"cta\": { \"heading\": \"...\", \"content\": \"...\" },
-                \"conclusion\": { \"heading\": \"...\", \"content\": \"...\" },
-                \"other_data\": { \"reading_time\": 5 }
+Title: '$title'
+Category: '$category'
+
+CRITICAL: Return ONLY valid JSON. No markdown, no explanations, no code blocks.
+
+Structure (MUST match exactly):
+{
+    \"meta_title\": \"SEO-optimized title (50-60 chars)\",
+    \"meta_description\": \"SEO description (150-160 chars)\",
+    \"tags\": [\"tag1\", \"tag2\", \"tag3\"],
+    \"sections\": {
+        \"intro\": {
+            \"heading\": \"Introduction heading\",
+            \"content\": \"<p>Engaging intro paragraph with HTML tags</p>\"
+        },
+        \"main_sections\": [
+            {
+                \"heading\": \"Section 1 Heading\",
+                \"content\": \"<p>Detailed content with HTML</p><p>Multiple paragraphs</p>\",
+                \"images\": [\"https://picsum.photos/800/600?random=1\"]
             },
-            \"meta_title\": \"...\",
-            \"meta_description\": \"...\",
-            \"tags\": [\"tag1\", \"tag2\"]
+            {
+                \"heading\": \"Section 2 Heading\",
+                \"content\": \"<p>Content here</p>\",
+                \"images\": [\"https://picsum.photos/800/600?random=2\"]
+            }
+        ],
+        \"highlights\": {
+            \"heading\": \"Key Highlights\",
+            \"content\": \"<ul><li>Point 1</li><li>Point 2</li></ul>\"
+        },
+        \"faq\": {
+            \"heading\": \"Frequently Asked Questions\",
+            \"content\": \"<p><strong>Q:</strong> Question?</p><p><strong>A:</strong> Answer</p>\"
+        },
+        \"conclusion\": {
+            \"heading\": \"Conclusion\",
+            \"content\": \"<p>Wrap up the blog</p>\"
+        },
+        \"other_data\": {
+            \"reading_time\": 5
         }
+    }
+}
 
-        IMPORTANT:
-        1. Return ONLY the JSON. No markdown formatting.
-        2. Ensure valid JSON.
-        3. Create 5 items in 'main_sections'.
-        4. Use placeholder images: 'https://picsum.photos/800/600?random=x' where x is unique.
-        ";
+REQUIREMENTS:
+1. Create EXACTLY 5 items in 'main_sections' array
+2. Each main_section must have: heading, content (HTML), images array
+3. Use unique picsum URLs: https://picsum.photos/800/600?random=1, random=2, etc.
+4. Content must use proper HTML tags: <p>, <ul>, <li>, <strong>, etc.
+5. Ensure reading_time is realistic (calculate based on content length)
+6. Generate relevant, SEO-friendly tags
+7. Make content engaging, informative, and travel-focused
+";
 
         try {
             // GenerativeAI Package Usage via Facade
@@ -210,7 +245,7 @@ class AdminBlogController extends Controller
     public function getModels()
     {
         try {
-            $response = Gemini::listModels();
+            $response = Gemini::models()->list();
             $models = [];
 
             foreach ($response->models as $model) {

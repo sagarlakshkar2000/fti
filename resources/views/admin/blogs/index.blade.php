@@ -58,6 +58,7 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <div class="flex justify-end space-x-3">
+                            <a href="{{ route('admin.blogs.preview', $blog) }}" class="text-blue-600 hover:text-blue-900">Preview</a>
                             <a href="{{ url('/blog/' . $blog->slug) }}" target="_blank" class="text-gray-400 hover:text-gray-600">View</a>
                             <a href="{{ route('admin.blogs.edit', $blog) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                             <form action="{{ route('admin.blogs.destroy', $blog) }}" method="POST" onsubmit="return confirm('Are you sure? This will delete the blog post permanently.')" class="inline">

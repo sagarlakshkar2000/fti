@@ -37,6 +37,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Blog CRUD
         Route::get('blogs/models', [\App\Http\Controllers\Admin\AdminBlogController::class, 'getModels'])->name('blogs.models');
         Route::post('blogs/generate', [\App\Http\Controllers\Admin\AdminBlogController::class, 'generate'])->name('blogs.generate');
+        Route::get('blogs/{blog}/preview', [\App\Http\Controllers\Admin\AdminBlogController::class, 'preview'])->name('blogs.preview');
         Route::resource('blogs', \App\Http\Controllers\Admin\AdminBlogController::class);
     });
 

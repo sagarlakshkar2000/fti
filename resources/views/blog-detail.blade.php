@@ -39,9 +39,11 @@
                     @if(!empty($blog->sections['intro']['heading']))
                     <h3>{{ $blog->sections['intro']['heading'] }}</h3>
                     @endif
+                    @if(!empty($blog->sections['intro']['content']))
                     <div class="text-xl leading-relaxed text-[#706f6c] dark:text-[#A1A09A]">
                         {!! $blog->sections['intro']['content'] !!}
                     </div>
+                    @endif
                 </div>
                 @endif
 
@@ -52,9 +54,11 @@
                     @if(!empty($section['heading']))
                     <h2>{{ $section['heading'] }}</h2>
                     @endif
+                    @if(!empty($section['content']))
                     <div class="mb-4 text-[#706f6c] dark:text-[#A1A09A]">
                         {!! $section['content'] !!}
                     </div>
+                    @endif
                     <!-- Section Images -->
                     @if(!empty($section['images']) && is_array($section['images']))
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
@@ -73,7 +77,9 @@
                     @if(!empty($blog->sections['highlights']['heading']))
                     <h3 class="mt-0 text-[#FF2D20]">{{ $blog->sections['highlights']['heading'] }}</h3>
                     @endif
+                    @if(!empty($blog->sections['highlights']['content']))
                     <div>{!! $blog->sections['highlights']['content'] !!}</div>
+                    @endif
                 </div>
                 @endif
 
@@ -83,7 +89,9 @@
                     @if(!empty($blog->sections['faq']['heading']))
                     <h2>{{ $blog->sections['faq']['heading'] }}</h2>
                     @endif
+                    @if(!empty($blog->sections['faq']['content']))
                     <div>{!! $blog->sections['faq']['content'] !!}</div>
+                    @endif
                 </div>
                 @endif
 
@@ -93,7 +101,9 @@
                     @if(!empty($blog->sections['booking_info']['heading']))
                     <h3 class="mt-0 text-[#FF2D20]">{{ $blog->sections['booking_info']['heading'] }}</h3>
                     @endif
+                    @if(!empty($blog->sections['booking_info']['content']))
                     <div>{!! $blog->sections['booking_info']['content'] !!}</div>
+                    @endif
                 </div>
                 @endif
 
@@ -102,7 +112,9 @@
                     @if(!empty($blog->sections['cta']['heading']))
                     <h2>{{ $blog->sections['cta']['heading'] }}</h2>
                     @endif
+                    @if(!empty($blog->sections['cta']['content']))
                     <div>{!! $blog->sections['cta']['content'] !!}</div>
+                    @endif
                     <a href="{{ route('contact') }}" class="inline-block mt-4 px-8 py-3 bg-[#FF2D20] text-white font-bold rounded-full hover:bg-[#e0281b] transition no-underline">
                         Contact Us Now
                     </a>
@@ -115,7 +127,9 @@
                     @if(!empty($blog->sections['conclusion']['heading']))
                     <h3>{{ $blog->sections['conclusion']['heading'] }}</h3>
                     @endif
+                    @if(!empty($blog->sections['conclusion']['content']))
                     <div>{!! $blog->sections['conclusion']['content'] !!}</div>
+                    @endif
                 </div>
                 @endif
 

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('category')->index();
             $table->json('tags'); // stored as ["tag1", "tag2"]
-            $table->string('main_image');
+            $table->string('main_image')->nullable();
             $table->enum('status', ['draft', 'published'])->default('draft');
             $table->json('sections'); // { "intro": {...}, "main_sections": [...] }
             $table->string('meta_title')->nullable();

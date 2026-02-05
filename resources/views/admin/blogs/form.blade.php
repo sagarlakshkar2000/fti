@@ -14,7 +14,7 @@
             <div class="flex items-center gap-3">
                 <label for="aiModel" class="text-sm font-medium text-gray-700">AI Model:</label>
                 <select id="aiModel" class="mt-1 block w-48 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option value="gemini-1.5-flash">Loading...</option>
+                    <option value="gemini-2.5-flash">Gemini 2.5 Flash</option>
                 </select>
             </div>
 
@@ -297,26 +297,29 @@
         const select = document.getElementById('aiModel');
         try {
             const response = await fetch('{{ route("admin.blogs.models") }}');
+            if (!response.ok) throw new Error('Network response was not ok');
+
             const models = await response.json();
 
-            select.innerHTML = '';
             if (Array.isArray(models) && models.length > 0) {
+                // Only clear if we successfully got models
+                select.innerHTML = '';
                 models.forEach(model => {
                     const opt = document.createElement('option');
                     opt.value = model.id;
                     opt.textContent = model.name;
-                    if (model.id.includes('1.5-flash')) opt.selected = true;
+                    if (model.id.includes('2.5-flash')) opt.selected = true;
                     select.appendChild(opt);
                 });
             } else {
                 const opt = document.createElement('option');
-                opt.value = 'gemini-1.5-flash';
-                opt.textContent = 'Gemini 1.5 Flash (Default)';
+                opt.value = 'gemini-2.5-flash';
+                opt.textContent = 'Gemini 2.5 Flash (Default)';
                 select.appendChild(opt);
             }
         } catch (e) {
-            console.error('Failed to fetch models', e);
-            select.innerHTML = '<option value="gemini-1.5-flash">Gemini 1.5 Flash (Fallback)</option>';
+            console.warn('Failed to fetch Gemini models, using default.', e);
+            // Do nothing, leave the default "Gemini 2.5 Flash" option in place
         }
     });
 
