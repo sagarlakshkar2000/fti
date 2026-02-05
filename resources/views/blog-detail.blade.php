@@ -221,26 +221,135 @@
                         <div class="absolute -top-10 -left-10 w-40 h-40 bg-red-500/20 rounded-full blur-3xl"></div>
                     </div>
 
-                    <!-- Latest Offers Widget -->
+                    <!-- Latest Offers Carousel -->
                     @if(isset($latest_offers) && $latest_offers->count() > 0)
-                    <div class="bg-white rounded-2xl border-2 border-gray-200 p-8 shadow-xl">
-                        <h3 class="font-bold text-2xl md:text-3xl mb-6 pb-4 border-b-2 border-gray-200 text-gray-900">Latest Offers</h3>
-                        <div class="space-y-6">
-                            @foreach($latest_offers as $offer)
-                            <div class="group cursor-pointer">
-                                <div class="h-40 bg-gray-200 rounded-xl overflow-hidden mb-4 shadow-md">
+                    <div class="bg-white rounded-2xl border-2 border-gray-200 p-8 shadow-xl overflow-hidden">
+                        <h3 class="font-bold text-2xl md:text-3xl mb-6 text-gray-900">Latest Offers</h3>
+
+                        <!-- Carousel Container -->
+                        <div class="relative">
+                            <!-- Images Slider -->
+                            <div class="offers-carousel relative h-64 rounded-xl overflow-hidden shadow-lg">
+                                @foreach($latest_offers as $index => $offer)
+                                <div class="carousel-slide absolute inset-0 transition-opacity duration-500 {{ $index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0' }}" data-slide="{{ $index }}">
                                     @if($offer->image)
-                                    <img src="{{ asset('storage/' . $offer->image) }}" alt="{{ $offer->name }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <img src="{{ asset('storage/' . $offer->image) }}"
+                                        alt="{{ $offer->name }}"
+                                        class="w-full h-full object-cover">
                                     @else
-                                    <div class="w-full h-full flex items-center justify-center text-gray-400 text-base">No Image</div>
+                                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-red-100 to-orange-100">
+                                        <svg class="w-20 h-20 text-red-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
                                     @endif
+                                    <!-- Overlay with offer name -->
+                                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                                        <h4 class="text-white font-bold text-lg md:text-xl">{{ $offer->name }}</h4>
+                                        <p class="text-gray-200 text-sm line-clamp-2">{{ $offer->description }}</p>
+                                    </div>
                                 </div>
-                                <h4 class="font-bold text-lg md:text-xl mb-2 group-hover:text-[#FF2D20] transition-colors text-gray-900">{{ $offer->name }}</h4>
-                                <p class="text-base text-gray-600 line-clamp-2">{{ $offer->description }}</p>
+                                @endforeach
                             </div>
-                            @endforeach
+
+                            <!-- Navigation Buttons -->
+                            <button onclick="previousSlide()" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all hover:scale-110">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button onclick="nextSlide()" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all hover:scale-110">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
+                            <!-- Dots Indicator -->
+                            <div class="flex justify-center gap-2 mt-4">
+                                @foreach($latest_offers as $index => $offer)
+                                <button onclick="goToSlide({{ $index }})" class="carousel-dot w-2.5 h-2.5 rounded-full transition-all {{ $index === 0 ? 'bg-[#FF2D20] w-8' : 'bg-gray-300' }}" data-dot="{{ $index }}"></button>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Carousel JavaScript -->
+                    <script>
+                        let currentSlide = 0;
+                        const slides = document.querySelectorAll('.carousel-slide');
+                        const dots = document.querySelectorAll('.carousel-dot');
+                        const totalSlides = slides.length;
+                        let autoSlideInterval;
+
+                        function showSlide(index) {
+                            // Hide all slides
+                            slides.forEach(slide => {
+                                slide.classList.remove('opacity-100', 'z-10');
+                                slide.classList.add('opacity-0', 'z-0');
+                            });
+
+                            // Show current slide
+                            if (slides[index]) {
+                                slides[index].classList.remove('opacity-0', 'z-0');
+                                slides[index].classList.add('opacity-100', 'z-10');
+                            }
+
+                            // Update dots
+                            dots.forEach((dot, i) => {
+                                if (i === index) {
+                                    dot.classList.remove('bg-gray-300', 'w-2.5');
+                                    dot.classList.add('bg-[#FF2D20]', 'w-8');
+                                } else {
+                                    dot.classList.remove('bg-[#FF2D20]', 'w-8');
+                                    dot.classList.add('bg-gray-300', 'w-2.5');
+                                }
+                            });
+
+                            currentSlide = index;
+                        }
+
+                        function nextSlide() {
+                            let next = (currentSlide + 1) % totalSlides;
+                            showSlide(next);
+                            resetAutoSlide();
+                        }
+
+                        function previousSlide() {
+                            let prev = (currentSlide - 1 + totalSlides) % totalSlides;
+                            showSlide(prev);
+                            resetAutoSlide();
+                        }
+
+                        function goToSlide(index) {
+                            showSlide(index);
+                            resetAutoSlide();
+                        }
+
+                        function startAutoSlide() {
+                            autoSlideInterval = setInterval(() => {
+                                nextSlide();
+                            }, 4000); // Change slide every 4 seconds
+                        }
+
+                        function resetAutoSlide() {
+                            clearInterval(autoSlideInterval);
+                            startAutoSlide();
+                        }
+
+                        // Start auto-sliding when page loads
+                        if (totalSlides > 1) {
+                            startAutoSlide();
+                        }
+
+                        // Pause on hover
+                        document.querySelector('.offers-carousel')?.addEventListener('mouseenter', () => {
+                            clearInterval(autoSlideInterval);
+                        });
+
+                        document.querySelector('.offers-carousel')?.addEventListener('mouseleave', () => {
+                            startAutoSlide();
+                        });
+                    </script>
                     @endif
 
                 </div>
